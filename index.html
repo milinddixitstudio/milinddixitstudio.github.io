@@ -3,14 +3,33 @@
 <head>
   <title>Milind Dixit Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f0c29, #1c1b3a, #24243e);
       color: white;
       text-align: center;
       padding: 60px 20px;
+      background: linear-gradient(180deg, #0f0c29, #1c1b3a, #24243e);
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Soft texture overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.05), transparent 60%),
+                  radial-gradient(circle at 70% 80%, rgba(255,255,255,0.04), transparent 60%);
+      pointer-events: none;
     }
 
     img {
@@ -31,7 +50,10 @@
     }
 
     .link {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       margin: 14px auto;
       padding: 15px;
       width: 90%;
@@ -41,12 +63,17 @@
       text-decoration: none;
       color: white;
       transition: 0.3s ease;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      font-size: 15px;
+    }
+
+    .link i {
+      font-size: 18px;
     }
 
     .link:hover {
       background: rgba(255,255,255,0.18);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
   </style>
 </head>
@@ -55,15 +82,23 @@
   <img src="logo.png" alt="Milind Dixit Studio Logo">
 
   <h1>Milind Dixit Studio</h1>
-  <p>Calm • Love • Emotional • Aesthetic Energy</p>
+  <p>Music Producer • Music Composer • Lyricist • Student</p>
 
-  <a class="link" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">Listen on Spotify</a>
+  <a class="link" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">
+    <i class="fab fa-spotify"></i> Listen on Spotify
+  </a>
 
-  <a class="link" href="https://youtube.com/@milinddixitstudio/" target="_blank">Visit YouTube Channel</a>
+  <a class="link" href="https://youtube.com/@milinddixitstudio/" target="_blank">
+    <i class="fab fa-youtube"></i> Visit YouTube Channel
+  </a>
 
-  <a class="link" href="https://amazon.com/music/player/artists/B0GPH5V9SY/milind-dixit?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IouYtg1otn99lXL3xFDu6EAwp" target="_blank">Amazon Music</a>
+  <a class="link" href="https://amazon.com/music/player/artists/B0GPH5V9SY/milind-dixit?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IouYtg1otn99lXL3xFDu6EAwp" target="_blank">
+    <i class="fab fa-amazon"></i> Amazon Music
+  </a>
 
-  <a class="link" href="https://www.instagram.com/milinddixitstudio/" target="_blank">Instagram</a>
+  <a class="link" href="https://www.instagram.com/milinddixitstudio/" target="_blank">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
 
 </body>
 </html>
