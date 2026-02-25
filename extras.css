@@ -1,29 +1,7 @@
-/* ===== Custom Scrollbar ===== */
-::-webkit-scrollbar {
-  width: 8px;
-}
+/* ============================= */
+/* CONTACT BUBBLE */
+/* ============================= */
 
-::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.2);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff9de2, #a18cd1);
-  border-radius: 20px;
-}
-
-/* ===== Scroll Progress Bar ===== */
-#scrollProgress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background: linear-gradient(90deg, #ff9de2, #a18cd1);
-  z-index: 9999;
-}
-
-/* ===== Floating Contact Bubble ===== */
 #contactBubble {
   position: fixed;
   bottom: 25px;
@@ -31,8 +9,8 @@
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,265 +22,44 @@
 }
 
 #contactBubble:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* ===== Floating Music Bar ===== */
-#musicBar {
+/* ============================= */
+/* FLOATING CONTACT PANEL */
+/* ============================= */
+
+#contactPanel {
   position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 70px;
-  backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  bottom: 90px;
+  right: 25px;
+  width: 320px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.55);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(15px);
+  transition: 0.3s ease;
   z-index: 9998;
 }
 
-/* ===== Floating Music Orb ===== */
-#musicOrb {
-  position: fixed;
-  bottom: 110px;
-  right: 25px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  backdrop-filter: blur(12px);
-  background: linear-gradient(135deg,#ff9de2,#a18cd1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-  z-index: 9999;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-/* ===== Cursor Glow ===== */
-.cursor-glow {
-  position: fixed;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  pointer-events: none;
-  background: radial-gradient(circle, #ff9de2, #a18cd1);
-  mix-blend-mode: screen;
-  z-index: 99999;
-}
-
-/* ===== Rain ===== */
-.rain {
-  position: fixed;
-  width: 2px;
-  height: 20px;
-  background: rgba(150,150,255,0.2);
-  top: -20px;
-  animation: rainFall linear infinite;
-  z-index: 1;
-}
-
-@keyframes rainFall {
-  to {
-    transform: translateY(100vh);
-  }
-}
-/* Better Glass for Music Bar */
-#musicBar {
-  backdrop-filter: blur(25px);
-  background: rgba(255,255,255,0.45);
-  box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
-}
-
-/* Smooth Buttons */
-#musicBar button {
-  padding: 8px 18px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(135deg,#ff9de2,#a18cd1);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#musicBar button:hover {
-  transform: scale(1.05);
-}
-/* Wave Animation */
-#wave {
-  width: 40px;
-  height: 10px;
-  background: repeating-linear-gradient(
-    90deg,
-    #ff9de2,
-    #ff9de2 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  opacity: 0.3;
-}
-
-#wave.active {
-  animation: waveMove 1s linear infinite;
+#contactPanel.show {
   opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0px);
 }
 
-@keyframes waveMove {
-  from { background-position-x: 0; }
-  to { background-position-x: 20px; }
+/* Scroll inside panel */
+#contactPanel::-webkit-scrollbar {
+  width: 5px;
 }
 
-/* Platform Modal */
-#platformModal {
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(15px);
+#contactPanel::-webkit-scrollbar-thumb {
   background: rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s ease;
-  z-index: 9999;
+  border-radius: 10px;
 }
-
-#platformModal.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modalGlass {
-  backdrop-filter: blur(25px);
-  background: rgba(255,255,255,0.5);
-  padding: 40px;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  text-align: center;
-}
-
-.modalGlass a {
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  background: linear-gradient(135deg,#ff9de2,#a18cd1);
-  color: white;
-  transition: 0.3s;
-}
-
-.modalGlass a:hover {
-  transform: scale(1.05);
-}
-
-/* Background Animation */
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-// ===================================
-// CLEAN FINAL FORM
-// ===================================
-
-const isMobile = window.innerWidth < 768;
-
-// ---------------------------
-// REMOVE CURSOR PARALLAX
-// ---------------------------
-// (Completely removed background movement)
-
-// ---------------------------
-// HIDE CONTACT SECTION FROM PAGE
-// ---------------------------
-window.addEventListener("DOMContentLoaded", () => {
-  const contactSection = document.querySelector("#contact");
-  if (contactSection) {
-    contactSection.style.display = "none";
-  }
-});
-
-// ---------------------------
-// SCROLL PROGRESS (Keep)
-// ---------------------------
-const progress = document.createElement("div");
-progress.id = "scrollProgress";
-document.body.appendChild(progress);
-
-window.addEventListener("scroll", () => {
-  let scrolled =
-    (document.documentElement.scrollTop /
-      (document.documentElement.scrollHeight -
-        document.documentElement.clientHeight)) *
-    100;
-  progress.style.width = scrolled + "%";
-});
-
-// ---------------------------
-// PLATFORM MODAL (Music Orb)
-// ---------------------------
-const modal = document.createElement("div");
-modal.id = "platformModal";
-modal.innerHTML = `
-  <div class="modalGlass">
-    <h3>Listen On</h3>
-    <a href="YOUR_SPOTIFY_LINK" target="_blank">Spotify</a>
-    <a href="YOUR_YOUTUBE_LINK" target="_blank">YouTube</a>
-    <a href="YOUR_AMAZON_LINK" target="_blank">Amazon Music</a>
-  </div>
-`;
-document.body.appendChild(modal);
-
-modal.addEventListener("click", e => {
-  if (e.target.id === "platformModal") {
-    modal.classList.remove("show");
-  }
-});
-
-// ---------------------------
-// MUSIC ORB (Keep)
-// ---------------------------
-const orb = document.createElement("div");
-orb.id = "musicOrb";
-orb.innerHTML = "♪";
-orb.onclick = () => modal.classList.toggle("show");
-document.body.appendChild(orb);
-
-// ---------------------------
-// CONTACT BUBBLE PANEL
-// ---------------------------
-const bubble = document.createElement("div");
-bubble.id = "contactBubble";
-bubble.innerHTML = "✉";
-document.body.appendChild(bubble);
-
-const contactPanel = document.createElement("div");
-contactPanel.id = "contactPanel";
-contactPanel.innerHTML = `
-  <div class="contactGlass">
-    <h3>Contact / Collaborate</h3>
-    ${document.querySelector("#contact")?.innerHTML || ""}
-  </div>
-`;
-document.body.appendChild(contactPanel);
-
-bubble.onclick = () => {
-  contactPanel.classList.toggle("show");
-};
-
-// Close when clicking outside
-contactPanel.addEventListener("click", e => {
-  if (e.target.id === "contactPanel") {
-    contactPanel.classList.remove("show");
-  }
-});
