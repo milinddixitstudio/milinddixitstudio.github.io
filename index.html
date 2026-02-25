@@ -1,145 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Milind Dixit Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Milind Dixit Studio</title>
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="ChatGPT Image Feb 11, 2026, 11_32_59 PM.png" type="image/png">
+<style>
+  /* Reset & Base */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body, html { width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; overflow: hidden; color: white; }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      text-align: center;
-      padding: 70px 20px;
-      overflow-x: hidden;
+  /* Background gradient + particle overlay */
+  body {
+    background: linear-gradient(135deg, #0b0b17, #1a1a3c, #3b0b5b);
+    position: relative;
+  }
 
-      /* Deep Layered Background */
-      background:
-        radial-gradient(circle at 15% 25%, rgba(120, 80, 255, 0.25), transparent 40%),
-        radial-gradient(circle at 85% 75%, rgba(0, 200, 255, 0.18), transparent 45%),
-        radial-gradient(circle at 50% 110%, rgba(255, 0, 140, 0.12), transparent 60%),
-        linear-gradient(180deg, #070716, #11112a, #18183a);
-    }
+  canvas#particles {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:1;
+  }
 
-    /* Grain Texture Overlay */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.07;
-      background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-    }
+  /* Center content */
+  .hero {
+    position: relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    height:100vh;
+    padding: 20px;
+  }
 
-    img {
-      width: 120px;
-      margin-bottom: 25px;
-      filter: drop-shadow(0 0 15px rgba(120, 100, 255, 0.4));
-    }
+  /* Logo */
+  .hero img {
+    width: 150px;
+    margin-bottom: 20px;
+    animation: pulse 2.5s infinite;
+    filter: drop-shadow(0 0 20px rgba(200,150,255,0.6));
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
 
-    h1 {
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-      font-size: 24px;
-    }
+  /* Headline */
+  .hero h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px #ff8efb, 0 0 20px #8ec5fc;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+  }
 
-    p {
-      opacity: 0.7;
-      margin-bottom: 45px;
-      font-size: 14px;
-    }
+  /* Tagline */
+  .hero p {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    animation: fadeIn 3s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+  }
 
-    .link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin: 16px auto;
-      padding: 16px;
-      width: 92%;
-      max-width: 340px;
-      border-radius: 35px;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      transition: 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-    }
+  /* Links */
+  .links {
+    display:flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 280px;
+  }
+  .link {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 10px;
+    padding:14px;
+    border-radius:35px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(255,255,255,0.15);
+  }
+  .link i { font-size:18px; }
+  .link:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(255,255,255,0.35); }
 
-    .link i {
-      font-size: 18px;
-    }
+  .spotify { background-color: #1DB954; color:white; }
+  .youtube { background-color: #FF0000; color:white; }
+  .amazon { background-color: #00A8E1; color:black; }
+  .instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); color:white; }
 
-    .link:hover {
-      transform: translateY(-4px);
-      opacity: 0.95;
-    }
+  /* Animations */
+  @keyframes fadeIn {
+    0% { opacity:0; transform: translateY(20px); }
+    100% { opacity:1; transform: translateY(0); }
+  }
 
-    /* Spotify */
-    .spotify {
-      background-color: #1DB954;
-      color: white;
-    }
-
-    /* YouTube */
-    .youtube {
-      background-color: #FF0000;
-      color: white;
-    }
-
-    /* Amazon */
-    .amazon {
-      background-color: #00A8E1;
-      color: black;
-    }
-
-    /* Instagram */
-    .instagram {
-      background: linear-gradient(
-        45deg,
-        #f58529,
-        #dd2a7b,
-        #8134af,
-        #515bd4
-      );
-      color: white;
-    }
-
-  </style>
+</style>
 </head>
+
 <body>
+  <!-- Particle background canvas -->
+  <canvas id="particles"></canvas>
 
-  <!-- Make sure your logo file is named logo.png -->
-  <img src="logo.png" alt="Milind Dixit Studio Logo">
+  <div class="hero">
+    <img src="logo.png" alt="Milind Dixit Studio Logo">
+    <h1>Milind Dixit Studio</h1>
+    <p>Calm • Love • Emotional • Aesthetic Energy</p>
 
-  <h1>Milind Dixit Studio</h1>
-  <p>Calm • Love • Emotional • Aesthetic Energy</p>
+    <div class="links">
+      <a class="link spotify" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">
+        <i class="fab fa-spotify"></i> Listen on Spotify
+      </a>
+      <a class="link youtube" href="https://youtube.com/@milinddixitstudio/" target="_blank">
+        <i class="fab fa-youtube"></i> Visit YouTube Channel
+      </a>
+      <a class="link amazon" href="https://amazon.com/music/player/artists/B0GPH5V9SY/milind-dixit?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IouYtg1otn99lXL3xFDu6EAwp" target="_blank">
+        <i class="fab fa-amazon"></i> Amazon Music
+      </a>
+      <a class="link instagram" href="https://www.instagram.com/milinddixitstudio/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
 
-  <a class="link spotify" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">
-    <i class="fab fa-spotify"></i> Listen on Spotify
-  </a>
+<script>
+  // Simple particle background
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
 
-  <a class="link youtube" href="https://youtube.com/@milinddixitstudio/" target="_blank">
-    <i class="fab fa-youtube"></i> Visit YouTube Channel
-  </a>
+  window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
 
-  <a class="link amazon" href="https://amazon.com/music/player/artists/B0GPH5V9SY/milind-dixit?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IouYtg1otn99lXL3xFDu6EAwp" target="_blank">
-    <i class="fab fa-amazon"></i> Amazon Music
-  </a>
+  const particles = [];
+  for(let i=0;i<120;i++){
+    particles.push({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*2+1,
+      dx: (Math.random()-0.5)*0.5,
+      dy: (Math.random()-0.5)*0.5
+    });
+  }
 
-  <a class="link instagram" href="https://www.instagram.com/milinddixitstudio/" target="_blank">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
+  function animate(){
+    ctx.clearRect(0,0,w,h);
+    for(let p of particles){
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = 'rgba(255,255,255,0.15)';
+      ctx.fill();
+      p.x += p.dx; p.y += p.dy;
+      if(p.x<0) p.x=w;
+      if(p.x>w) p.x=0;
+      if(p.y<0) p.y=h;
+      if(p.y>h) p.y=0;
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
 
 </body>
 </html>
