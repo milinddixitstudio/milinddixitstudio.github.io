@@ -5,144 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Milind Dixit Studio</title>
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <!-- Bubble Font -->
   <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      color: white;
-      overflow-x: hidden;
+      margin:0;
+      font-family:'Segoe UI',sans-serif;
+      color:white;
       background:
         radial-gradient(circle at 15% 25%, rgba(255,120,200,0.25), transparent 40%),
         radial-gradient(circle at 85% 75%, rgba(120,80,255,0.18), transparent 45%),
         radial-gradient(circle at 50% 110%, rgba(0,200,255,0.12), transparent 60%),
-        linear-gradient(180deg, #070716, #11112a, #18183a);
+        linear-gradient(180deg,#070716,#11112a,#18183a);
+      overflow-x:hidden;
     }
-
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      opacity: 0.07;
-      background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    body::after{
+      content:"";
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      pointer-events:none;
+      opacity:0.07;
+      background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
     }
 
     /* Splash */
     #splash {
-      position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 1000;
+      position:fixed;
+      top:50%; left:50%;
+      transform:translate(-50%, -50%);
+      text-align:center;
+      z-index:1000;
     }
-
     #splash img {
-      width: 150px;
-      height: auto;
-      filter: drop-shadow(0 0 15px rgba(255,120,200,0.6));
+      width:150px;
+      height:auto;
+      filter:drop-shadow(0 0 15px rgba(255,120,200,0.6));
     }
-
     #heroTag {
-      font-family: 'Bubblegum Sans', cursive;
-      font-size: 28px;
-      color: white;
-      text-shadow: 0 0 10px white, 0 0 20px #c0c0ff, 0 0 30px #a080ff;
-      opacity: 0;
-      margin: 10px 0 0 0;
+      font-family:'Bubblegum Sans',cursive;
+      font-size:28px;
+      color:white;
+      opacity:0;
+      margin:10px 0 0 0;
+    }
+    #heroTag.shine {
+      animation: shine 2s infinite;
+    }
+    @keyframes shine{
+      0% {text-shadow:0 0 10px white,0 0 20px #c0c0ff,0 0 30px #a080ff;}
+      50% {text-shadow:0 0 20px white,0 0 30px #c0c0ff,0 0 40px #a080ff;}
+      100% {text-shadow:0 0 10px white,0 0 20px #c0c0ff,0 0 30px #a080ff;}
     }
 
-    @keyframes shine {
-      0% { text-shadow: 0 0 10px white, 0 0 20px #c0c0ff, 0 0 30px #a080ff; }
-      50% { text-shadow: 0 0 20px white, 0 0 30px #c0c0ff, 0 0 40px #a080ff; }
-      100% { text-shadow: 0 0 10px white, 0 0 20px #c0c0ff, 0 0 30px #a080ff; }
+    /* Main content */
+    #main{
+      max-width:900px;
+      margin:140px auto 40px auto;
+      padding:20px;
+      opacity:0;
     }
 
-    #heroTag.shine { animation: shine 2s infinite; }
-
-    /* Main Content */
-    #main {
-      max-width: 900px;
-      margin: 140px auto 40px auto;
-      padding: 20px;
-      opacity: 0;
-    }
-
-    h2 { font-size: 24px; margin-bottom: 15px; color: #ff9ff3; }
-    p { line-height: 1.6; opacity: 0.9; }
+    h2{font-size:24px;margin-bottom:15px;color:#ff9ff3;}
+    p{line-height:1.6;opacity:0.9;}
 
     /* Links */
-    #linksBtn {
-      display: inline-block;
-      padding: 12px 25px;
-      border-radius: 35px;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
-      color: white;
-      border: 2px solid white;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-      transition: 0.3s ease;
-      margin-bottom: 20px;
+    #linksBtn{
+      display:inline-block;
+      padding:12px 25px;
+      border-radius:35px;
+      font-weight:600;
+      font-size:16px;
+      cursor:pointer;
+      background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+      color:white;
+      border:2px solid white;
+      box-shadow:0 8px 20px rgba(0,0,0,0.35);
+      transition:0.3s ease;
+      margin-bottom:20px;
     }
-    #linksBtn:hover { transform: translateY(-4px); opacity: 0.95; }
-    #linksContainer {
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 30px;
+    #linksBtn:hover{transform:translateY(-4px);opacity:0.95;}
+    #linksContainer{
+      display:none;
+      flex-direction:column;
+      gap:12px;
+      margin-bottom:30px;
     }
-    .link {
-      display: flex; align-items: center; justify-content: center;
-      gap: 12px; padding: 14px; border-radius: 35px;
-      font-size: 15px; font-weight: 600;
-      transition: 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-      border: 2px solid white; text-decoration: none;
+    .link{
+      display:flex;align-items:center;justify-content:center;
+      gap:12px;padding:14px;border-radius:35px;
+      font-size:15px;font-weight:600;
+      transition:0.3s ease;box-shadow:0 8px 20px rgba(0,0,0,0.35);
+      border:2px solid white;text-decoration:none;
     }
-    .link i { font-size: 18px; }
-    .link:hover { transform: translateY(-3px); }
-    .spotify { background-color: #1DB954; color: white; }
-    .youtube { background-color: #FF0000; color: white; }
-    .amazon { background-color: #00A8E1; color: black; }
-    .instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); color: white; }
+    .link i{font-size:18px;}
+    .link:hover{transform:translateY(-3px);}
+    .spotify{background-color:#1DB954;color:white;}
+    .youtube{background-color:#FF0000;color:white;}
+    .amazon{background-color:#00A8E1;color:black;}
+    .instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);color:white;}
 
     /* Gallery */
-    #gallery .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 20px; margin-top: 15px;
+    #gallery .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;margin-top:15px;
     }
-    #gallery .grid img {
-      width: 100%; border-radius: 20px;
-      transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
+    #gallery .grid img{
+      width:100%;border-radius:20px;
+      transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;
     }
-    #gallery .grid img:hover {
-      transform: scale(1.05); box-shadow: 0 0 25px #ff6ec7;
+    #gallery .grid img:hover{
+      transform:scale(1.05);box-shadow:0 0 25px #ff6ec7;
     }
 
-    /* Contact Form */
-    #collabForm form {
-      display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin-top: 20px;
+    /* Contact form */
+    #collabForm form{
+      display:flex;flex-direction:column;gap:12px;max-width:500px;margin-top:20px;
     }
-    #collabForm input, #collabForm textarea, #collabForm button {
-      padding: 12px; border-radius: 12px; border: none; font-size: 14px; outline: none;
+    #collabForm input,#collabForm textarea,#collabForm button{
+      padding:12px;border-radius:12px;border:none;font-size:14px;outline:none;
     }
-    #collabForm button {
-      cursor: pointer; background: #ff9ff3; font-weight: bold;
-      color: #1a1a1a; border: 2px solid white; transition: 0.3s ease;
+    #collabForm button{
+      cursor:pointer;background:#ff9ff3;font-weight:bold;color:#1a1a1a;border:2px solid white;transition:0.3s ease;
     }
-    #collabForm button:hover { transform: translateY(-2px); }
-
+    #collabForm button:hover{transform:translateY(-2px);}
   </style>
 </head>
 <body>
@@ -153,8 +147,9 @@
     <h1 id="heroTag">Milind Dixit Studio</h1>
   </div>
 
-  <!-- Main content -->
+  <!-- Main Content -->
   <div id="main">
+
     <!-- Links -->
     <div style="text-align:center;">
       <div id="linksBtn">Links</div>
@@ -176,17 +171,17 @@
     </div>
 
     <!-- Gallery -->
-    <div id="gallery" class="section">
+    <div id="gallery">
       <h2>Gallery</h2>
       <div class="grid">
-        <img src="img1.jpg" alt="Milind Music 1">
-        <img src="img2.jpg" alt="Milind Music 2">
-        <img src="img3.jpg" alt="Milind Music 3">
+        <img src="img1.png" alt="Image 1">
+        <img src="img2.png" alt="Image 2">
+        <img src="img3.png" alt="Image 3">
       </div>
     </div>
 
-    <!-- Contact Form -->
-    <div id="collabForm" class="section">
+    <!-- Contact -->
+    <div id="collabForm">
       <h2>Collaboration / Contact</h2>
       <form action="https://formspree.io/f/xnjbllzg" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
@@ -195,78 +190,80 @@
         <button type="submit">Send Message</button>
       </form>
     </div>
+
   </div>
 
   <script>
-    // --- Splash Animation ---
-    window.addEventListener('load', () => {
-      const logo = document.querySelector('#splash img');
-      const heroTag = document.getElementById('heroTag');
-      const main = document.getElementById('main');
+    window.addEventListener('load',()=>{
+      const logo=document.querySelector('#splash img');
+      const heroTag=document.getElementById('heroTag');
+      const main=document.getElementById('main');
 
-      const tl = gsap.timeline({defaults:{ease:"power2.inOut"}});
-      // Pop animation
-      tl.fromTo([logo, heroTag], {scale:0, opacity:0}, {scale:1.2, opacity:1, duration:0.8});
-      // Move to corner
-      const topOffset = 20, leftOffset = 20, finalLogoScale = 0.4, finalTextScale = 0.7;
-      const rectLogo = logo.getBoundingClientRect();
-      const rectText = heroTag.getBoundingClientRect();
-      tl.to(logo, {
-        x: leftOffset - rectLogo.left,
-        y: topOffset - rectLogo.top,
-        scale: finalLogoScale,
+      // Get initial positions
+      const rectLogo=logo.getBoundingClientRect();
+      const rectText=heroTag.getBoundingClientRect();
+      const topOffset=20;
+      const leftOffset=20;
+      const finalLogoScale=0.4;
+      const finalTextScale=0.7;
+
+      const tl=gsap.timeline({defaults:{ease:"power2.inOut"}});
+      tl.fromTo([logo,heroTag],{scale:0,opacity:0},{scale:1.2,opacity:1,duration:0.8});
+      tl.to(logo,{
+        x:leftOffset-rectLogo.left,
+        y:topOffset-rectLogo.top,
+        scale:finalLogoScale,
         duration:1.2
-      }, "<");
-      tl.to(heroTag, {
-        x: leftOffset + rectLogo.width*finalLogoScale + 10 - rectText.left,
-        y: topOffset - rectText.top + 5,
-        scale: finalTextScale,
+      },"<");
+      tl.to(heroTag,{
+        x:leftOffset+rectLogo.width*finalLogoScale+10-rectText.left,
+        y:topOffset-rectText.top+5,
+        scale:finalTextScale,
         duration:1.2,
-        onComplete: () => {
-          logo.style.position = "fixed";
-          logo.style.top = topOffset + "px";
-          logo.style.left = leftOffset + "px";
-          logo.style.transform = "none";
+        onComplete:()=>{
+          logo.style.position="fixed";
+          logo.style.top=topOffset+"px";
+          logo.style.left=leftOffset+"px";
+          logo.style.transform="none";
 
-          heroTag.style.position = "fixed";
-          heroTag.style.top = topOffset + 5 + "px";
-          heroTag.style.left = leftOffset + rectLogo.width*finalLogoScale + 10 + "px";
-          heroTag.style.transform = "none";
-          heroTag.classList.add('shine');
+          heroTag.style.position="fixed";
+          heroTag.style.top=topOffset+5+"px";
+          heroTag.style.left=leftOffset+rectLogo.width*finalLogoScale+10+"px";
+          heroTag.style.transform="none";
+          heroTag.classList.add("shine");
 
-          main.style.opacity = 1;
+          main.style.opacity=1;
+          main.style.marginTop="120px";
         }
-      }, "<");
+      },"<");
     });
 
-    // --- Links Button ---
-    const linksBtn = document.getElementById('linksBtn');
-    const linksContainer = document.getElementById('linksContainer');
-    linksBtn.addEventListener('click', () => {
-      if(linksContainer.style.display === 'flex'){
-        gsap.to(linksContainer, {height:0, opacity:0, duration:0.5, onComplete:()=>{linksContainer.style.display='none';}});
-      } else {
-        linksContainer.style.display = 'flex';
-        gsap.fromTo(linksContainer, {height:0, opacity:0}, {height:'auto', opacity:1, duration:0.5});
+    // Links toggle
+    const linksBtn=document.getElementById('linksBtn');
+    const linksContainer=document.getElementById('linksContainer');
+    linksBtn.addEventListener('click',()=>{
+      if(linksContainer.style.display==='flex'){
+        gsap.to(linksContainer,{height:0,opacity:0,duration:0.5,onComplete:()=>{linksContainer.style.display='none';}});
+      }else{
+        linksContainer.style.display='flex';
+        gsap.fromTo(linksContainer,{height:0,opacity:0},{height:'auto',opacity:1,duration:0.5});
       }
     });
 
-    // --- AJAX Contact Form ---
-    const form = document.querySelector('#collabForm form');
-    form.addEventListener('submit', async (e) => {
+    // Contact form AJAX
+    const form=document.querySelector('#collabForm form');
+    form.addEventListener('submit',async e=>{
       e.preventDefault();
-      const formData = new FormData(form);
-      try {
-        await fetch(form.action, {method:'POST', body:formData, headers:{'Accept':'application/json'}});
+      const formData=new FormData(form);
+      try{
+        await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});
         form.reset();
-        const msg = document.createElement('p');
-        msg.innerText = "Message Sent!";
-        msg.style.color = "#ff9ff3";
+        const msg=document.createElement('p');
+        msg.innerText="Message Sent!";
+        msg.style.color="#ff9ff3";
         form.appendChild(msg);
-        setTimeout(()=> msg.remove(), 3000);
-      } catch (err) {
-        alert("Oops! There was a problem sending your message.");
-      }
+        setTimeout(()=> msg.remove(),3000);
+      }catch(err){alert("Oops! Problem sending message.");}
     });
   </script>
 
