@@ -5,18 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Milind Dixit Studio</title>
 
-<!-- Font Awesome for icons -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-  /* Reset & Base */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body, html { width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; overflow: hidden; color: white; }
+<!-- Google Fonts: Bubbly effect -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
 
-  /* Background gradient + particle overlay */
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; font-family:'Segoe UI', sans-serif; overflow-x:hidden; }
+
   body {
-    background: linear-gradient(135deg, #0b0b17, #1a1a3c, #3b0b5b);
+    background: linear-gradient(135deg, #1b0b3c, #3b0b5b, #ff6ec7);
     position: relative;
+    color:white;
   }
 
   canvas#particles {
@@ -26,115 +28,227 @@
     z-index:1;
   }
 
-  /* Center content */
-  .hero {
+  /* Splash & Hero Container */
+  #splash {
+    position: fixed;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    text-align:center;
+    z-index:3;
+  }
+
+  #splash img {
+    width:180px;
+    animation: popPulse 1s ease forwards;
+    filter: drop-shadow(0 0 20px rgba(255,200,255,0.6));
+  }
+
+  @keyframes popPulse {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    60% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+  }
+
+  #splash h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size:40px;
+    margin-top:15px;
+    letter-spacing:2px;
+    color:#ff9ff3;
+    text-shadow: 0 0 15px #ff6ec7,0 0 25px #8ec5fc;
+    opacity:0;
+    animation: fadeInText 1s ease forwards 0.5s;
+  }
+
+  @keyframes fadeInText {
+    from { opacity:0; transform: translateY(20px);}
+    to { opacity:1; transform: translateY(0);}
+  }
+
+  /* Main Site Container */
+  #main {
+    opacity:0;
+    transition: opacity 1s ease;
     position: relative;
     z-index:2;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    padding-top:80px;
+    max-width:900px;
+    margin:0 auto;
+  }
+
+  /* Logo top-left after animation */
+  #logoTop {
+    position: fixed;
+    top:20px;
+    left:20px;
+    width:80px;
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 15px rgba(255,200,255,0.6));
+    z-index:3;
+  }
+
+  /* Hero tagline */
+  #heroTag {
+    position: fixed;
+    top:30px;
+    left:120px;
+    font-family:'Baloo 2', cursive;
+    font-size:20px;
+    letter-spacing:1px;
+    color:#ff9ff3;
+    text-shadow: 0 0 8px #ff6ec7;
+    opacity:0;
+    transition: opacity 1s ease 1s;
+    z-index:3;
+  }
+
+  /* Sections */
+  .section {
+    background: rgba(10,10,20,0.6);
+    border-radius: 20px;
+    margin:30px 0;
+    padding:40px 20px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.1);
     text-align:center;
-    height:100vh;
-    padding: 20px;
   }
-
-  /* Logo */
-  .hero img {
-    width: 150px;
-    margin-bottom: 20px;
-    animation: pulse 2.5s infinite;
-    filter: drop-shadow(0 0 20px rgba(200,150,255,0.6));
+  .section h2 {
+    font-size:28px;
+    margin-bottom:20px;
+    text-shadow:0 0 8px #ff8efb;
   }
-  @keyframes pulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-  }
-
-  /* Headline */
-  .hero h1 {
-    font-size: 36px;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-    text-shadow: 0 0 10px #ff8efb, 0 0 20px #8ec5fc;
-    animation: fadeIn 2s ease forwards;
-    opacity: 0;
-  }
-
-  /* Tagline */
-  .hero p {
-    font-size: 16px;
-    opacity: 0.8;
-    margin-bottom: 40px;
-    animation: fadeIn 3s ease forwards;
-    animation-delay: 1s;
-    opacity: 0;
+  .section p {
+    font-size:16px;
+    line-height:1.6;
+    max-width:700px;
+    margin:0 auto 20px auto;
   }
 
   /* Links */
   .links {
     display:flex;
     flex-direction: column;
-    gap: 15px;
-    width: 280px;
+    gap:15px;
+    margin-bottom:40px;
   }
   .link {
     display:flex;
     align-items:center;
     justify-content:center;
-    gap: 10px;
+    gap:10px;
     padding:14px;
     border-radius:35px;
     text-decoration:none;
     font-weight:600;
     font-size:15px;
-    transition: 0.3s ease;
-    box-shadow: 0 0 15px rgba(255,255,255,0.15);
+    transition:0.3s ease;
+    box-shadow:0 0 15px rgba(255,255,255,0.15);
+    border: 2px solid white; /* added white bold outline */
   }
   .link i { font-size:18px; }
-  .link:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(255,255,255,0.35); }
+  .link:hover { transform: translateY(-4px); box-shadow:0 0 25px rgba(255,255,255,0.35); }
 
   .spotify { background-color: #1DB954; color:white; }
   .youtube { background-color: #FF0000; color:white; }
   .amazon { background-color: #00A8E1; color:black; }
   .instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); color:white; }
 
-  /* Animations */
-  @keyframes fadeIn {
-    0% { opacity:0; transform: translateY(20px); }
-    100% { opacity:1; transform: translateY(0); }
+  /* Collab Button */
+  .collab-button {
+    background: linear-gradient(135deg,#ff6ec7,#1f8eff);
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    color:white;
+    transition:0.3s ease;
+    box-shadow:0 0 15px rgba(255,255,255,0.25);
   }
+  .collab-button:hover {
+    transform: translateY(-4px);
+    box-shadow:0 0 25px rgba(255,255,255,0.4);
+  }
+
+  input[type="email"] {
+    padding:12px 16px;
+    border-radius:25px;
+    border:none;
+    width:250px;
+    margin-right:10px;
+    outline:none;
+  }
+
+  input[type="submit"] {
+    padding:12px 20px;
+    border-radius:25px;
+    border:none;
+    background:#ff6ec7;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+  }
+  input[type="submit"]:hover { background:#1f8eff; }
 
 </style>
 </head>
-
 <body>
-  <!-- Particle background canvas -->
-  <canvas id="particles"></canvas>
 
-  <div class="hero">
-    <img src="logo.png" alt="Milind Dixit Studio Logo">
-    <h1>Milind Dixit Studio</h1>
-    <p>Music Producer • Music Composer • Lyricist • Student</p>
+<canvas id="particles"></canvas>
 
-    <div class="links">
-      <a class="link spotify" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">
-        <i class="fab fa-spotify"></i> Listen on Spotify
-      </a>
-      <a class="link youtube" href="https://youtube.com/@milinddixitstudio/" target="_blank">
-        <i class="fab fa-youtube"></i> Visit YouTube Channel
-      </a>
-      <a class="link amazon" href="https://amazon.com/music/player/artists/B0GPH5V9SY/milind-dixit?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IouYtg1otn99lXL3xFDu6EAwp" target="_blank">
-        <i class="fab fa-amazon"></i> Amazon Music
-      </a>
-      <a class="link instagram" href="https://www.instagram.com/milinddixitstudio/" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-    </div>
+<!-- Splash -->
+<div id="splash">
+  <img src="logo.png" alt="Logo">
+  <h1>Milind Dixit Studio</h1>
+</div>
+
+<!-- Top-left logo & tagline after animation -->
+<img src="logo.png" id="logoTop" style="opacity:0;">
+<div id="heroTag">Music Producer • Music Composer • Lyricist • Student</div>
+
+<!-- Main content -->
+<div id="main">
+  <!-- Social Links -->
+  <div class="links">
+    <a class="link spotify" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">
+      <i class="fab fa-spotify"></i> Spotify
+    </a>
+    <a class="link youtube" href="https://youtube.com/@milinddixitstudio/" target="_blank">
+      <i class="fab fa-youtube"></i> YouTube
+    </a>
+    <a class="link amazon" href="https://amazon.com/music/player/artists/B0GPH5V9SY/milind-dixit?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_IouYtg1otn99lXL3xFDu6EAwp" target="_blank">
+      <i class="fab fa-amazon"></i> Amazon Music
+    </a>
+    <a class="link instagram" href="https://www.instagram.com/milinddixitstudio/" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
   </div>
 
+  <!-- About Section -->
+  <div class="section">
+    <h2>About Me</h2>
+    <p>Hi! I'm Milind Dixit, a music producer and composer. I create music that blends calm, love, and emotions — from chill electronic beats to soulful melodies. My goal is to bring a magical and aesthetic vibe to everyone who listens. Explore my world of sound and feel the energy.</p>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="section">
+    <h2>Contact Me</h2>
+    <p>If you want to reach out or send me a message, just drop your email below and I'll get back to you!</p>
+    <form action="mailto:milinddixitstudio@gmail.com" method="post" enctype="text/plain">
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="submit" value="Send">
+    </form>
+  </div>
+
+  <!-- Collaboration -->
+  <div class="section">
+    <h2>Collaboration Available</h2>
+    <p>I'm open to music collaborations! If you have a project or idea that fits my vibe, click the button below to reach out directly.</p>
+    <a href="mailto:milinddixitstudio@gmail.com" class="collab-button">Let's Collab</a>
+  </div>
+</div>
+
 <script>
-  // Simple particle background
+  // Particle Background
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   let w = canvas.width = window.innerWidth;
@@ -143,7 +257,7 @@
   window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
 
   const particles = [];
-  for(let i=0;i<120;i++){
+  for(let i=0;i<150;i++){
     particles.push({
       x: Math.random()*w,
       y: Math.random()*h,
@@ -169,6 +283,32 @@
     requestAnimationFrame(animate);
   }
   animate();
+
+  // Splash animation -> move logo & show main content
+  window.addEventListener('load', () => {
+    const splash = document.getElementById('splash');
+    const logoTop = document.getElementById('logoTop');
+    const heroTag = document.getElementById('heroTag');
+    const main = document.getElementById('main');
+
+    setTimeout(() => {
+      // Move logo to top-left
+      const splashImg = splash.querySelector('img');
+      splashImg.style.transition = 'all 1s ease';
+      splashImg.style.transform = 'translate(-50%, -50%) scale(0.45)';
+      splashImg.style.position = 'fixed';
+      splashImg.style.top = '20px';
+      splashImg.style.left = '20px';
+      logoTop.style.opacity = 1;
+      heroTag.style.opacity =1;
+
+      // Fade out splash after transition
+      setTimeout(() => { splash.style.display='none'; }, 1000);
+
+      // Show main content
+      main.style.opacity =1;
+    }, 1200);
+  });
 </script>
 
 </body>
