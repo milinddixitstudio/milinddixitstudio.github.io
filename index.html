@@ -16,13 +16,13 @@
   body {
     margin:0;
     font-family:'Segoe UI',sans-serif;
-    color:white;
+    color:#1a1a1a;
     overflow-x:hidden;
     background:
-      radial-gradient(circle at 15% 25%, rgba(255,120,200,0.25), transparent 40%),
-      radial-gradient(circle at 85% 75%, rgba(120,80,255,0.18), transparent 45%),
-      radial-gradient(circle at 50% 110%, rgba(0,200,255,0.12), transparent 60%),
-      linear-gradient(180deg,#070716,#11112a,#18183a);
+      radial-gradient(circle at 15% 25%, rgba(255,200,255,0.25), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(200,180,255,0.18), transparent 45%),
+      radial-gradient(circle at 50% 110%, rgba(180,220,255,0.12), transparent 60%),
+      linear-gradient(180deg,#fefefe,#e8e8ff,#dce6ff);
   }
 
   /* Particles container */
@@ -52,7 +52,7 @@
   #splash h1 {
     font-family:'Bubblegum Sans',cursive;
     font-size:32px;
-    color:white;
+    color:#1a1a1a;
     margin:15px 0 0 0;
     text-shadow:0 0 15px #ff9ff3;
   }
@@ -72,7 +72,7 @@
   #cornerLogo h1 {
     font-family:'Bubblegum Sans',cursive;
     font-size:20px;
-    color:white;
+    color:#1a1a1a;
     margin:0;
   }
 
@@ -86,8 +86,8 @@
     z-index:2;
   }
 
-  h2{font-size:24px;margin-bottom:15px;color:#ff9ff3;}
-  p{line-height:1.6;opacity:0.9;}
+  h2{font-size:24px;margin-bottom:15px;color:#ff80bf;}
+  p{line-height:1.6;opacity:0.9;color:#333;}
 
   /* Links button */
   #linksBtn{
@@ -125,6 +125,30 @@
   .amazon{background-color:#00A8E1;color:black;}
   .instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);color:white;}
 
+  /* Glass effect */
+  .glass-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 40px;
+  }
+
+  /* About Me layout */
+  .aboutContent {
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .aboutImage {
+    width:180px;
+    border-radius:20px;
+    flex-shrink:0;
+    object-fit:cover;
+  }
+  .aboutText { flex:1; }
+
   /* Gallery */
   #gallery .grid{
     display:grid;
@@ -137,16 +161,6 @@
   }
   #gallery .grid img:hover{
     transform:scale(1.05);box-shadow:0 0 25px #ff6ec7;
-  }
-
-  /* Lightbox */
-  #lightboxOverlay{
-    display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-    background:rgba(0,0,0,0.85);justify-content:center;align-items:center;
-    z-index:2000;cursor:pointer;
-  }
-  #lightboxOverlay img{
-    max-width:90%;max-height:90%;border-radius:20px;box-shadow:0 0 40px #ff9ff3;
   }
 
   /* Contact form */
@@ -194,31 +208,30 @@
   </div>
 
   <!-- About Me -->
-  <div id="aboutMe">
-    <h2>About Me</h2>
-    <p>Welcome to all who wander into my world — here, music is not just sound; it’s a feeling, a story, a piece of my soul.</p>
-    <p>Myself, Milind Dixit, a Producer & Composer (Student) and a lyricist, crafting melodies that capture the calm of rainy evenings, the warmth of love, and the subtle emotions that linger in quiet moments. Every track I create is a fragment of my universe — part dream, part memory, part heartbeat — and it carries the essence of who I am.</p>
-    <p>I explore rhythms, harmonies, and textures through my digital instruments and production tools, shaping them into soundscapes that feel alive and personal. Each note, each beat is a reflection of my thoughts, my emotions, and my story — music that is truly mine, yet meant to resonate with anyone who listens.</p>
-    <p>Through my creations, I invite listeners to step into my world: to feel, to imagine, and to connect. Every project, every composition is a journey — one that grows with me, evolves with me, and carries the magic I hold within.</p>
-  </div>
-
-  <!-- Gallery -->
-  <div id="gallery">
-    <h2>Gallery</h2>
-    <div class="grid">
-      <img src="img1.png" alt="Image 1">
-      <img src="img2.png" alt="Image 2">
-     
+  <div id="aboutMe" class="glass-box">
+    <div class="aboutContent">
+      <img src="profile.png" alt="Milind Dixit" class="aboutImage">
+      <div class="aboutText">
+        <h2>About Me</h2>
+        <p>Welcome to all who wander into my world — here, music is not just sound; it’s a feeling, a story, a piece of my soul.</p>
+        <p>Myself, Milind Dixit, a Producer & Composer (Student) and a lyricist, crafting melodies that capture the calm of rainy evenings, the warmth of love, and the subtle emotions that linger in quiet moments. Every track I create is a fragment of my universe — part dream, part memory, part heartbeat — and it carries the essence of who I am.</p>
+        <p>I explore rhythms, harmonies, and textures through my digital instruments and production tools, shaping them into soundscapes that feel alive and personal. Each note, each beat is a reflection of my thoughts, my emotions, and my story — music that is truly mine, yet meant to resonate with anyone who listens.</p>
+        <p>Through my creations, I invite listeners to step into my world: to feel, to imagine, and to connect. Every project, every composition is a journey — one that grows with me, evolves with me, and carries the magic I hold within.</p>
+      </div>
     </div>
   </div>
 
-  <!-- Lightbox overlay -->
-  <div id="lightboxOverlay">
-    <img id="lightboxImage" src="">
+  <!-- Gallery -->
+  <div id="gallery" class="glass-box">
+    <h2>Gallery</h2>
+    <div class="grid">
+      <img src="img1.png" alt="Lost Within" data-link="track1.html">
+      <img src="img2.png" alt="Frosted Silence" data-link="track2.html">
+    </div>
   </div>
 
   <!-- Contact -->
-  <div id="collabForm">
+  <div id="collabForm" class="glass-box">
     <h2>Collaboration / Contact</h2>
     <form action="https://formspree.io/f/xnjbllzg" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -278,52 +291,15 @@ window.addEventListener('load', ()=>{
     }catch(err){alert("Oops! Problem sending message.");}
   });
 
-  // Gallery lightbox
-  const lightboxOverlay=document.getElementById('lightboxOverlay');
-  const lightboxImage=document.getElementById('lightboxImage');
-  // Smooth gallery lightbox
-document.querySelectorAll('#gallery .grid img').forEach(img=>{
-  img.addEventListener('click', ()=>{
-    const rect = img.getBoundingClientRect(); // get image position
-    lightboxImage.src = img.src;
-    lightboxOverlay.style.display = 'flex';
-    gsap.set(lightboxImage, {
-      width: rect.width,
-      height: rect.height,
-      x: rect.left + rect.width/2 - window.innerWidth/2,
-      y: rect.top + rect.height/2 - window.innerHeight/2,
-      opacity: 0
-    });
-    gsap.to(lightboxImage, {
-      width: '90%',
-      height: 'auto',
-      x:0,
-      y:0,
-      opacity:1,
-      duration:0.7,
-      ease:"power2.out"
+  // Gallery clickable links
+  document.querySelectorAll('#gallery .grid img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      if(img.dataset.link){
+        window.open(img.dataset.link,"_blank");
+      }
     });
   });
-});
 
-lightboxOverlay.addEventListener('click', ()=>{
-  const img = document.querySelector('#gallery .grid img[src="'+lightboxImage.src+'"]');
-  if(!img) { lightboxOverlay.style.display='none'; return; }
-  const rect = img.getBoundingClientRect();
-  gsap.to(lightboxImage, {
-    width: rect.width,
-    height: rect.height,
-    x: rect.left + rect.width/2 - window.innerWidth/2,
-    y: rect.top + rect.height/2 - window.innerHeight/2,
-    opacity:0,
-    duration:0.7,
-    ease:"power2.in",
-    onComplete: ()=>{
-      lightboxOverlay.style.display='none';
-      lightboxImage.src='';
-    }
-  });
-});
   // Particles.js config
   particlesJS("particles-js", {
     "particles": {
