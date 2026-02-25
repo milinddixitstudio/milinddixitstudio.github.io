@@ -57,6 +57,16 @@ window.addEventListener("load", function () {
 });
 function setDynamicBackground() {
   const hour = new Date().getHours();
+  const title = document.getElementById("studioTitle");
+
+if (title) {
+  // Evening (5PM+) and Night
+  if (hour >= 17 || hour < 6) {
+    title.style.color = "#ffffff";
+  } else {
+    title.style.color = "#111111";
+  }
+}
   let gradient;
 
   // 🌅 Sunrise (5am – 8am)
