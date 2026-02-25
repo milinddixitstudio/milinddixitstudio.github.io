@@ -1,5 +1,5 @@
 // ================================
-// PRO MODE UPGRADE
+// ELITE MODE
 // ================================
 
 // ===== Scroll Progress =====
@@ -20,8 +20,7 @@ const cursor = document.createElement("div");
 cursor.classList.add("cursor-glow");
 document.body.appendChild(cursor);
 
-let mouseX = 0, mouseY = 0;
-let posX = 0, posY = 0;
+let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
 
 document.addEventListener("mousemove", e => {
   mouseX = e.clientX;
@@ -38,26 +37,19 @@ function animateCursor() {
 animateCursor();
 
 // ================================
-// Floating Contact Bubble
+// REAL Audio
 // ================================
-const bubble = document.createElement("div");
-bubble.id = "contactBubble";
-bubble.innerHTML = "✉";
-bubble.onclick = () => {
-  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-};
-document.body.appendChild(bubble);
-
-// ================================
-// REAL Audio Player
-// ================================
-const audio = new Audio("your-audio-file.mp3"); // PUT YOUR FILE NAME HERE
+const audio = new Audio("your-audio-file.mp3");
 audio.loop = true;
 
+// ================================
+// Music Bar with Wave Animation
+// ================================
 const musicBar = document.createElement("div");
 musicBar.id = "musicBar";
 musicBar.innerHTML = `
   <span style="font-weight:500;">Lost Within</span>
+  <div id="wave"></div>
   <button id="playBtn">Play</button>
 `;
 document.body.appendChild(musicBar);
@@ -68,11 +60,28 @@ playBtn.onclick = () => {
   if (audio.paused) {
     audio.play();
     playBtn.innerText = "Pause";
+    document.getElementById("wave").classList.add("active");
   } else {
     audio.pause();
     playBtn.innerText = "Play";
+    document.getElementById("wave").classList.remove("active");
   }
 };
+
+// ================================
+// Platform Glass Modal
+// ================================
+const modal = document.createElement("div");
+modal.id = "platformModal";
+modal.innerHTML = `
+  <div class="modalGlass">
+    <h3>Listen On</h3>
+    <a href="YOUR_SPOTIFY_LINK" target="_blank">Spotify</a>
+    <a href="YOUR_YOUTUBE_LINK" target="_blank">YouTube</a>
+    <a href="YOUR_AMAZON_LINK" target="_blank">Amazon Music</a>
+  </div>
+`;
+document.body.appendChild(modal);
 
 // ================================
 // Floating Music Orb
@@ -81,54 +90,25 @@ const orb = document.createElement("div");
 orb.id = "musicOrb";
 orb.innerHTML = "♪";
 orb.onclick = () => {
-  musicBar.style.display =
-    musicBar.style.display === "none" ? "flex" : "none";
+  modal.classList.toggle("show");
 };
 document.body.appendChild(orb);
 
 // ================================
-// Rain ONLY on Top Section
+// Magnetic Buttons
 // ================================
-function createRain() {
-  const heroHeight = window.innerHeight;
-
-  for (let i = 0; i < 35; i++) {
-    let drop = document.createElement("div");
-    drop.classList.add("rain");
-    drop.style.left = Math.random() * window.innerWidth + "px";
-    drop.style.top = Math.random() * heroHeight + "px";
-    drop.style.animationDuration = 1 + Math.random() * 2 + "s";
-    document.body.appendChild(drop);
-  }
-}
-createRain();
-
-// ================================
-// Smooth Page Fade
-// ================================
-document.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", function(e) {
-    if (this.hostname === window.location.hostname) {
-      e.preventDefault();
-      document.body.style.opacity = 0;
-      setTimeout(() => {
-        window.location = this.href;
-      }, 400);
-    }
+document.addEventListener("mousemove", e => {
+  document.querySelectorAll("a, button").forEach(btn => {
+    const rect = btn.getBoundingClientRect();
+    const dx = e.clientX - (rect.left + rect.width/2);
+    const dy = e.clientY - (rect.top + rect.height/2);
+    btn.style.transform = `translate(${dx*0.05}px, ${dy*0.05}px)`;
   });
 });
 
-document.body.style.transition = "opacity 0.4s ease";
-document.body.style.opacity = 1;
-
 // ================================
-// Parallax Effect (Subtle)
+// Slow Animated Background
 // ================================
-document.addEventListener("mousemove", (e) => {
-  const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-  const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-
-  document.querySelectorAll("section").forEach(sec => {
-    sec.style.transform = `translate(${moveX}px, ${moveY}px)`;
-  });
-});
+document.body.style.background = "linear-gradient(270deg,#fdfbfb,#ebedee,#fbc2eb,#a6c1ee)";
+document.body.style.backgroundSize = "600% 600%";
+document.body.style.animation = "bgMove 20s ease infinite";
