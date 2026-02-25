@@ -85,6 +85,7 @@ function setDynamicBackground() {
   }
 
   document.body.style.background = gradient;
+document.body.style.backgroundAttachment = "fixed";
 }
 
 setDynamicBackground();
