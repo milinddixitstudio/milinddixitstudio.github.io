@@ -13,11 +13,13 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Bubble Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
   <style>
-    /* --- Body & Background --- */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -40,7 +42,7 @@
       background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
     }
 
-    /* --- Splash --- */
+    /* Splash */
     #splash {
       position: fixed;
       top: 50%; left: 50%;
@@ -52,44 +54,32 @@
       width: 150px;
       filter: drop-shadow(0 0 15px rgba(255, 120, 200, 0.6));
     }
-    #splash h1 {
+    #heroTag {
+      font-family: 'Bubblegum Sans', cursive;
       font-size: 28px;
-      margin: 10px 0 0 0;
-      font-weight: 700;
-      color: #ff9ff3;
-      text-shadow: 0 0 15px rgba(255, 120, 200, 0.7);
-    }
-
-    /* --- Top-left Logo --- */
-    #logoTop {
-      position: fixed;
-      top: 20px;
-      left: 20px;
+      color: white;
+      text-shadow: 0 0 10px white, 0 0 20px #c0c0ff, 0 0 30px #a080ff;
       opacity: 0;
+      margin: 10px 0 0 0;
     }
-    #logoTop img {
-      width: 60px;
-      filter: drop-shadow(0 0 10px rgba(255, 120, 200, 0.7));
+    @keyframes shine {
+      0% { text-shadow: 0 0 10px #ff9ff3, 0 0 20px #ff6ec7, 0 0 30px #c56fff; }
+      50% { text-shadow: 0 0 20px #ff9ff3, 0 0 30px #ff6ec7, 0 0 40px #c56fff; }
+      100% { text-shadow: 0 0 10px #ff9ff3, 0 0 20px #ff6ec7, 0 0 30px #c56fff; }
     }
+    #heroTag.shine { animation: shine 2s infinite; }
 
-    /* --- Main Content --- */
+    /* Main Content */
     #main {
       max-width: 900px;
       margin: 140px auto 40px auto;
       padding: 20px;
       opacity: 0;
     }
-    h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #ff9ff3;
-    }
-    p {
-      line-height: 1.6;
-      opacity: 0.9;
-    }
+    h2 { font-size: 24px; margin-bottom: 15px; color: #ff9ff3; }
+    p { line-height: 1.6; opacity: 0.9; }
 
-    /* --- Links Button --- */
+    /* Links */
     #linksBtn {
       display: inline-block;
       padding: 12px 25px;
@@ -104,98 +94,61 @@
       transition: 0.3s ease;
       margin-bottom: 20px;
     }
-    #linksBtn:hover {
-      transform: translateY(-4px);
-      opacity: 0.95;
-    }
-
+    #linksBtn:hover { transform: translateY(-4px); opacity: 0.95; }
     #linksContainer {
       display: none;
       flex-direction: column;
       gap: 12px;
       margin-bottom: 30px;
     }
-
     .link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 14px;
-      border-radius: 35px;
-      font-size: 15px;
-      font-weight: 600;
-      transition: 0.3s ease;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-      border: 2px solid white;
-      text-decoration: none;
+      display: flex; align-items: center; justify-content: center;
+      gap: 12px; padding: 14px; border-radius: 35px;
+      font-size: 15px; font-weight: 600;
+      transition: 0.3s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      border: 2px solid white; text-decoration: none;
     }
-    .link i {
-      font-size: 18px;
-    }
+    .link i { font-size: 18px; }
     .link:hover { transform: translateY(-3px); }
-
     .spotify { background-color: #1DB954; color: white; }
     .youtube { background-color: #FF0000; color: white; }
     .amazon { background-color: #00A8E1; color: black; }
     .instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4); color: white; }
 
-    /* --- Gallery --- */
+    /* Gallery */
     #gallery .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 20px;
-      margin-top: 15px;
+      gap: 20px; margin-top: 15px;
     }
     #gallery .grid img {
-      width: 100%;
-      border-radius: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
+      width: 100%; border-radius: 20px;
+      transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;
     }
     #gallery .grid img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ff6ec7;
+      transform: scale(1.05); box-shadow: 0 0 25px #ff6ec7;
     }
 
-    /* --- Contact Form --- */
+    /* Contact Form */
     #collabForm form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 500px;
-      margin-top: 20px;
+      display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin-top: 20px;
     }
     #collabForm input, #collabForm textarea, #collabForm button {
-      padding: 12px;
-      border-radius: 12px;
-      border: none;
-      font-size: 14px;
-      outline: none;
+      padding: 12px; border-radius: 12px; border: none; font-size: 14px; outline: none;
     }
     #collabForm button {
-      cursor: pointer;
-      background: #ff9ff3;
-      font-weight: bold;
-      color: #1a1a1a;
-      border: 2px solid white;
-      transition: 0.3s ease;
+      cursor: pointer; background: #ff9ff3; font-weight: bold;
+      color: #1a1a1a; border: 2px solid white; transition: 0.3s ease;
     }
     #collabForm button:hover { transform: translateY(-2px); }
   </style>
 </head>
-
 <body>
 
   <!-- Splash -->
   <div id="splash">
     <img src="logo.png" alt="Milind Dixit Studio Logo">
     <h1 id="heroTag">Milind Dixit Studio</h1>
-  </div>
-
-  <!-- Top-left logo -->
-  <div id="logoTop">
-    <img src="logo.png" alt="Milind Dixit Studio Logo">
   </div>
 
   <!-- Main content -->
@@ -242,28 +195,55 @@
     </div>
   </div>
 
-  <!-- --- Scripts --- -->
+  <!-- Scripts -->
   <script>
-    // --- GSAP Splash Animation ---
+    // --- Splash Animation ---
     window.addEventListener('load', () => {
-      const splashImg = document.querySelector('#splash img');
-      const logoTop = document.getElementById('logoTop');
+      const logo = document.querySelector('#splash img');
       const heroTag = document.getElementById('heroTag');
       const main = document.getElementById('main');
 
-      gsap.fromTo(splashImg, {scale:0}, {scale:1.2, duration:0.8, ease:"back.out(1.7)", onComplete: moveLogo});
+      gsap.fromTo([logo, heroTag], {scale:0, opacity:0}, {scale:1.2, opacity:1, duration:0.8, ease:"back.out(1.7)", onComplete: moveToCorner});
 
-      function moveLogo() {
-        const targetX = -window.innerWidth/2 + 60;
-        const targetY = -window.innerHeight/2 + 20;
-        gsap.to(splashImg, {x: targetX, y: targetY, scale:0.45, duration:1, ease:"power2.inOut", onComplete: showContent});
-      }
+      function moveToCorner() {
+        const rectLogo = logo.getBoundingClientRect();
+        const rectText = heroTag.getBoundingClientRect();
+        const topOffset = 20;
+        const leftOffset = 20;
+        const finalLogoWidth = 60;
+        const finalTextFontSize = 20;
 
-      function showContent() {
-        logoTop.style.opacity = 1;
-        heroTag.style.opacity = 1;
-        document.getElementById('splash').style.display = 'none';
-        main.style.opacity = 1;
+        gsap.to(logo, {
+          x: leftOffset - rectLogo.left,
+          y: topOffset - rectLogo.top,
+          width: finalLogoWidth,
+          height: "auto",
+          duration: 1.2,
+          ease: "power2.inOut"
+        });
+
+        gsap.to(heroTag, {
+          x: leftOffset + finalLogoWidth + 10 - rectText.left,
+          y: topOffset - rectText.top + 5,
+          fontSize: finalTextFontSize,
+          duration: 1.2,
+          ease: "power2.inOut",
+          onComplete: () => {
+            logo.style.position = "fixed";
+            logo.style.top = topOffset + "px";
+            logo.style.left = leftOffset + "px";
+            logo.style.transform = "none";
+
+            heroTag.style.position = "fixed";
+            heroTag.style.top = topOffset + 5 + "px";
+            heroTag.style.left = leftOffset + finalLogoWidth + 10 + "px";
+            heroTag.style.transform = "none";
+            heroTag.classList.add('shine');
+
+            main.style.opacity = 1;
+            document.getElementById('splash').style.display = 'none';
+          }
+        });
       }
     });
 
@@ -285,17 +265,13 @@
       e.preventDefault();
       const formData = new FormData(form);
       try {
-        await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: {'Accept':'application/json'}
-        });
+        await fetch(form.action, {method:'POST', body:formData, headers:{'Accept':'application/json'}});
         form.reset();
         const msg = document.createElement('p');
         msg.innerText = "Message Sent!";
         msg.style.color = "#ff9ff3";
         form.appendChild(msg);
-        setTimeout(() => msg.remove(), 3000);
+        setTimeout(()=> msg.remove(), 3000);
       } catch (err) {
         alert("Oops! There was a problem sending your message.");
       }
