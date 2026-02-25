@@ -11,7 +11,7 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- Your own CSS -->
+<!-- CSS -->
 <style>
   body {
     margin:0;
@@ -19,10 +19,10 @@
     color:#1a1a1a;
     overflow-x:hidden;
     background:
-      radial-gradient(circle at 15% 25%, rgba(255,200,255,0.25), transparent 40%),
-      radial-gradient(circle at 85% 75%, rgba(200,180,255,0.18), transparent 45%),
-      radial-gradient(circle at 50% 110%, rgba(180,220,255,0.12), transparent 60%),
-      linear-gradient(180deg,#fefefe,#e8e8ff,#dce6ff);
+      radial-gradient(circle at 15% 25%, rgba(255,120,200,0.25), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(120,80,255,0.18), transparent 45%),
+      radial-gradient(circle at 50% 110%, rgba(0,200,255,0.12), transparent 60%),
+      linear-gradient(180deg,#f7f7f7,#e8e8f0,#dcdcf0);
   }
 
   /* Particles container */
@@ -86,8 +86,17 @@
     z-index:2;
   }
 
-  h2{font-size:24px;margin-bottom:15px;color:#ff80bf;}
-  p{line-height:1.6;opacity:0.9;color:#333;}
+  h2{font-size:24px;margin-bottom:15px;color:#ff9ff3;}
+  p{line-height:1.6;opacity:0.9;}
+
+  /* Glass effect for About and Collab */
+  .glass{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:30px;
+  }
 
   /* Links button */
   #linksBtn{
@@ -125,30 +134,6 @@
   .amazon{background-color:#00A8E1;color:black;}
   .instagram{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);color:white;}
 
-  /* Glass effect */
-  .glass-box {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 40px;
-  }
-
-  /* About Me layout */
-  .aboutContent {
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-  }
-  .aboutImage {
-    width:180px;
-    border-radius:20px;
-    flex-shrink:0;
-    object-fit:cover;
-  }
-  .aboutText { flex:1; }
-
   /* Gallery */
   #gallery .grid{
     display:grid;
@@ -174,11 +159,19 @@
     cursor:pointer;background:#ff9ff3;font-weight:bold;color:#1a1a1a;border:2px solid white;transition:0.3s ease;
   }
   #collabForm button:hover{transform:translateY(-2px);}
+
+  /* Gallery popup modal */
+  #galleryPopup{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(255,255,255,0.15);backdrop-filter:blur(12px);
+    z-index:3000;opacity:0;pointer-events:none;
+  }
 </style>
 </head>
 <body>
 
-<!-- Particles background -->
+<!-- Particles -->
 <div id="particles-js"></div>
 
 <!-- Splash -->
@@ -208,30 +201,28 @@
   </div>
 
   <!-- About Me -->
-  <div id="aboutMe" class="glass-box">
-    <div class="aboutContent">
-      <img src="profile.png" alt="Milind Dixit" class="aboutImage">
-      <div class="aboutText">
-        <h2>About Me</h2>
-        <p>Welcome to all who wander into my world — here, music is not just sound; it’s a feeling, a story, a piece of my soul.</p>
-        <p>Myself, Milind Dixit, a Producer & Composer (Student) and a lyricist, crafting melodies that capture the calm of rainy evenings, the warmth of love, and the subtle emotions that linger in quiet moments. Every track I create is a fragment of my universe — part dream, part memory, part heartbeat — and it carries the essence of who I am.</p>
-        <p>I explore rhythms, harmonies, and textures through my digital instruments and production tools, shaping them into soundscapes that feel alive and personal. Each note, each beat is a reflection of my thoughts, my emotions, and my story — music that is truly mine, yet meant to resonate with anyone who listens.</p>
-        <p>Through my creations, I invite listeners to step into my world: to feel, to imagine, and to connect. Every project, every composition is a journey — one that grows with me, evolves with me, and carries the magic I hold within.</p>
-      </div>
+  <div id="aboutMe" class="glass" style="display:flex;gap:20px;align-items:center;">
+    <img src="ChatGPT Image Feb 11, 2026, 11_32_59 PM.png" style="width:150px;border-radius:20px;" alt="Profile Image">
+    <div>
+      <h2>About Me</h2>
+      <p>Welcome to all who wander into my world — here, music is not just sound; it’s a feeling, a story, a piece of my soul.</p>
+      <p>Myself, Milind Dixit, a Producer & Composer (Student) and a lyricist, crafting melodies that capture the calm of rainy evenings, the warmth of love, and the subtle emotions that linger in quiet moments. Every track I create is a fragment of my universe — part dream, part memory, part heartbeat — and it carries the essence of who I am.</p>
+      <p>I explore rhythms, harmonies, and textures through my digital instruments and production tools, shaping them into soundscapes that feel alive and personal. Each note, each beat is a reflection of my thoughts, my emotions, and my story — music that is truly mine, yet meant to resonate with anyone who listens.</p>
+      <p>Through my creations, I invite listeners to step into my world: to feel, to imagine, and to connect. Every project, every composition is a journey — one that grows with me, evolves with me, and carries the magic I hold within.</p>
     </div>
   </div>
 
   <!-- Gallery -->
-  <div id="gallery" class="glass-box">
+  <div id="gallery" class="glass">
     <h2>Gallery</h2>
     <div class="grid">
-      <img src="img1.png" alt="Lost Within" data-link="track1.html">
-      <img src="img2.png" alt="Frosted Silence" data-link="track2.html">
+      <img src="img1.png" alt="Lost Within">
+      <img src="img2.png" alt="Frosted Silence">
     </div>
   </div>
 
-  <!-- Contact -->
-  <div id="collabForm" class="glass-box">
+  <!-- Collaboration -->
+  <div id="collabForm" class="glass">
     <h2>Collaboration / Contact</h2>
     <form action="https://formspree.io/f/xnjbllzg" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -243,18 +234,20 @@
 
 </div>
 
+<!-- Gallery popup modal -->
+<div id="galleryPopup"></div>
+
 <!-- JS Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-<!-- Your JS -->
+<!-- JS -->
 <script>
 window.addEventListener('load', ()=>{
   const splash=document.getElementById('splash');
   const corner=document.getElementById('cornerLogo');
   const main=document.getElementById('main');
 
-  // Splash fade in/out
   gsap.fromTo(splash,{opacity:0},{opacity:1,duration:1,onComplete:()=>{
     gsap.to(splash,{opacity:0,duration:1,delay:1,onComplete:()=>{
       splash.style.display='none';
@@ -275,7 +268,7 @@ window.addEventListener('load', ()=>{
     }
   });
 
-  // Contact form AJAX
+  // Contact AJAX
   const form=document.querySelector('#collabForm form');
   form.addEventListener('submit',async e=>{
     e.preventDefault();
@@ -291,27 +284,61 @@ window.addEventListener('load', ()=>{
     }catch(err){alert("Oops! Problem sending message.");}
   });
 
-  // Gallery clickable links
-  document.querySelectorAll('#gallery .grid img').forEach(img=>{
-    img.addEventListener('click', ()=>{
-      if(img.dataset.link){
-        window.open(img.dataset.link,"_blank");
-      }
-    });
-  });
-
-  // Particles.js config
+  // Particles
   particlesJS("particles-js", {
     "particles": {
       "number": {"value":60},
-      "color": {"value":["#ff9ff3","#b39ddb","#ff6ec7"]},
+      "color": {"value":["#ff6ec7","#9900ff","#ff0099"]},
       "shape": {"type":"circle"},
       "opacity": {"value":0.5},
       "size": {"value":3},
-      "line_linked":{"enable":false},
+      "line_linked":{"enable":true,"color":"#999"},
       "move":{"enable":true,"speed":1.5}
     }
   });
+
+  // Gallery popup
+  const trackLinks = {
+    "img1.png": [
+      {name:"Spotify", url:"https://open.spotify.com/album/7oEv9m2vuOB1Wongw0I3e7?si=QUelYgBlQDyLTRUTYGIRZg", class:"spotify"},
+      {name:"Amazon Music", url:"https://music.amazon.in/albums/B0GPGKTPBY?ref=dm_sh_8d40-ee8a-e42a-23b5-df27e", class:"amazon"},
+      {name:"YouTube", url:"https://youtu.be/ggm0JNSoaVs?si=nrxGL3509HllLo1F", class:"youtube"}
+    ],
+    "img2.png": [
+      {name:"Spotify", url:"https://open.spotify.com/album/7svJUVlCH0wzzOW1iRgqBQ?si=kkTBCQltRWy3C_owlxZaPw", class:"spotify"},
+      {name:"Amazon Music", url:"https://music.amazon.in/albums/B0GPX1X5HJ?ref=dm_sh_a538-4a71-4be3-349b-7fa15", class:"amazon"},
+      {name:"YouTube", url:"https://youtu.be/TOUAB79LEjw?si=bjTdJ_pAtZqOnmSW", class:"youtube"}
+    ]
+  };
+
+  const galleryPopup=document.getElementById('galleryPopup');
+
+  document.querySelectorAll('#gallery .grid img').forEach(img=>{
+    img.addEventListener('click', ()=>{
+      galleryPopup.innerHTML="";
+      const links=trackLinks[img.src.split('/').pop()];
+      const container=document.createElement('div');
+      container.style.cssText="display:flex;flex-direction:column;align-items:center;gap:15px;";
+      links.forEach(l=>{
+        const a=document.createElement('a');
+        a.innerText=l.name;
+        a.href=l.url;
+        a.target="_blank";
+        a.className="link "+l.class;
+        a.style.width="200px";
+        container.appendChild(a);
+      });
+      const close=document.createElement('button');
+      close.innerText="Close";
+      close.style.cssText="padding:10px 20px;border-radius:12px;background:#ff9ff3;color:#1a1a1a;border:none;cursor:pointer;font-weight:bold;";
+      close.onclick=()=> gsap.to(galleryPopup,{opacity:0,duration:0.4,pointerEvents:'none'});
+      galleryPopup.appendChild(container);
+      galleryPopup.appendChild(close);
+      galleryPopup.style.pointerEvents='auto';
+      gsap.to(galleryPopup,{opacity:1,duration:0.5});
+    });
+  });
+
 });
 </script>
 </body>
