@@ -55,3 +55,36 @@ window.addEventListener("load", function () {
   });
 
 });
+function setDynamicBackground() {
+  const hour = new Date().getHours();
+  let gradient;
+
+  // 🌅 Sunrise (5am – 8am)
+  if (hour >= 5 && hour < 8) {
+    gradient = "linear-gradient(135deg, #1e3c72, #f7971e, #ffd200)";
+  }
+
+  // ☀ Morning (8am – 12pm)
+  else if (hour >= 8 && hour < 12) {
+    gradient = "linear-gradient(135deg, #56ccf2, #2f80ed)";
+  }
+
+  // 🌤 Afternoon (12pm – 5pm)
+  else if (hour >= 12 && hour < 17) {
+    gradient = "linear-gradient(135deg, #2980b9, #6dd5fa)";
+  }
+
+  // 🌇 Evening (5pm – 8pm)
+  else if (hour >= 17 && hour < 20) {
+    gradient = "linear-gradient(135deg, #614385, #516395)";
+  }
+
+  // 🌙 Night (8pm – 5am)
+  else {
+    gradient = "linear-gradient(135deg, #0f2027, #203a43, #2c5364)";
+  }
+
+  document.body.style.background = gradient;
+}
+
+setDynamicBackground();
