@@ -37,7 +37,7 @@ window.addEventListener("load", function () {
   setTimeout(() => {
     bubble.style.opacity = "1";
     bubble.style.pointerEvents = "auto";
-  }, 1800); // adjust if needed
+  }, 1800);
 
   // -----------------------------
   // Toggle panel
@@ -54,51 +54,65 @@ window.addEventListener("load", function () {
     }
   });
 
+  // ===================================
+  // TIME-BASED BACKGROUND + TEXT COLOR
+  // ===================================
+
+  function setDynamicBackground() {
+
+    const hour = new Date().getHours();
+    let gradient;
+
+    // 🌅 Sunrise (5am – 8am)
+    if (hour >= 5 && hour < 8) {
+      gradient = "linear-gradient(135deg, #1e3c72, #f7971e, #ffd200)";
+    }
+
+    // ☀ Morning (8am – 12pm)
+    else if (hour >= 8 && hour < 12) {
+      gradient = "linear-gradient(135deg, #56ccf2, #2f80ed)";
+    }
+
+    // 🌤 Afternoon (12pm – 5pm)
+    else if (hour >= 12 && hour < 17) {
+      gradient = "linear-gradient(135deg, #2980b9, #6dd5fa)";
+    }
+
+    // 🌇 Evening (5pm – 8pm)
+    else if (hour >= 17 && hour < 20) {
+      gradient = "linear-gradient(135deg, #614385, #516395)";
+    }
+
+    // 🌙 Night (8pm – 5am)
+    else {
+      gradient = "linear-gradient(135deg, #0f2027, #203a43, #2c5364)";
+    }
+
+    document.body.style.background = gradient;
+    document.body.style.backgroundAttachment = "fixed";
+
+    // -----------------------------
+    // Corner Logo Text Color
+    // -----------------------------
+    const cornerText = document.querySelector("#cornerLogo h1");
+
+    if (cornerText) {
+      if (hour >= 17 || hour < 6) {
+        // Evening + Night
+        cornerText.style.color = "#ffffff";
+        cornerText.style.textShadow = "0 0 10px rgba(255,255,255,0.6)";
+      } else {
+        // Day
+        cornerText.style.color = "#222";
+        cornerText.style.textShadow = "none";
+      }
+    }
+  }
+
+  // Run once on load
+  setDynamicBackground();
+
+  // Update every minute
+  setInterval(setDynamicBackground, 60000);
+
 });
-function setDynamicBackground() {
-  const hour = new Date().getHours();
-const cornerText = document.querySelector("#cornerLogo h1");
-
-if (cornerText) {
-  if (hour >= 17 || hour < 6) {
-    // Evening + Night
-    cornerText.style.color = "#ffffff";
-    cornerText.style.textShadow = "0 0 10px rgba(255,255,255,0.6)";
-  } else {
-    // Morning + Afternoon
-    cornerText.style.color = "#222";
-    cornerText.style.textShadow = "none";
-  }
-}
-  let gradient;
-
-  // 🌅 Sunrise (5am – 8am)
-  if (hour >= 5 && hour < 8) {
-    gradient = "linear-gradient(135deg, #1e3c72, #f7971e, #ffd200)";
-  }
-
-  // ☀ Morning (8am – 12pm)
-  else if (hour >= 8 && hour < 12) {
-    gradient = "linear-gradient(135deg, #56ccf2, #2f80ed)";
-  }
-
-  // 🌤 Afternoon (12pm – 5pm)
-  else if (hour >= 12 && hour < 17) {
-    gradient = "linear-gradient(135deg, #2980b9, #6dd5fa)";
-  }
-
-  // 🌇 Evening (5pm – 8pm)
-  else if (hour >= 17 && hour < 20) {
-    gradient = "linear-gradient(135deg, #614385, #516395)";
-  }
-
-  // 🌙 Night (8pm – 5am)
-  else {
-    gradient = "linear-gradient(135deg, #0f2027, #203a43, #2c5364)";
-  }
-
-  document.body.style.background = gradient;
-document.body.style.backgroundAttachment = "fixed";
-}
-
-setDynamicBackground();
