@@ -1,10 +1,10 @@
 // ===================================
-// CONTACT PANEL — CONTROLLED APPEAR
+// MOVE COLLAB SECTION INTO BUBBLE PANEL
 // ===================================
 
 window.addEventListener("load", function () {
 
-  const originalContact = document.querySelector("#contact");
+  const originalContact = document.querySelector("#collabForm");
   if (!originalContact) return;
 
   // -----------------------------
@@ -18,28 +18,29 @@ window.addEventListener("load", function () {
   document.body.appendChild(bubble);
 
   // -----------------------------
-  // Create Panel
+  // Create Floating Panel
   // -----------------------------
   const panel = document.createElement("div");
   panel.id = "contactPanel";
   document.body.appendChild(panel);
 
-  // Move contact section into panel
+  // MOVE the collab section into panel
   panel.appendChild(originalContact);
+
+  // Remove extra spacing
   originalContact.style.margin = "0";
   originalContact.style.padding = "0";
 
   // -----------------------------
-  // Show bubble AFTER intro
-  // Adjust delay if needed
+  // Show bubble after intro
   // -----------------------------
   setTimeout(() => {
     bubble.style.opacity = "1";
     bubble.style.pointerEvents = "auto";
-  }, 1800); // 1.8s after load (adjust if your intro is longer)
+  }, 1800); // adjust if needed
 
   // -----------------------------
-  // Toggle Panel
+  // Toggle panel
   // -----------------------------
   bubble.addEventListener("click", function (e) {
     e.stopPropagation();
