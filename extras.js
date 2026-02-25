@@ -34,3 +34,50 @@ window.addEventListener("load",function(){
   });
 
 });
+document.addEventListener("DOMContentLoaded", function(){
+
+// Gallery Lightbox with Back Button Fix
+const lightboxOverlay=document.getElementById('lightboxOverlay');
+const lightboxContent=document.getElementById('lightboxContent');
+
+document.querySelectorAll('#gallery .grid img').forEach(img=>{
+  img.addEventListener('click', ()=>{
+    const links=JSON.parse(img.dataset.links);
+    lightboxContent.innerHTML='';
+
+    links.forEach((link,i)=>{
+      const a=document.createElement('a');
+      a.href=link;
+      a.target="_blank";
+      a.innerText=i===0?'Spotify':i===1?'Amazon Music':'YouTube';
+      a.className=i===0?'spotify2':i===1?'amazon2':'youtube2';
+      lightboxContent.appendChild(a);
+    });
+
+    lightboxOverlay.style.display='flex';
+
+    // ADD HISTORY STATE
+    history.pushState({lightbox:true}, "");
+  });
+});
+
+// Close overlay
+function closeLightbox(){
+  lightboxOverlay.style.display='none';
+}
+
+// Click outside closes
+lightboxOverlay.addEventListener('click', (e)=>{
+  if(e.target===lightboxOverlay){
+    history.back(); // triggers popstate
+  }
+});
+
+// BACK BUTTON FIX
+window.addEventListener('popstate', function(event){
+  if(lightboxOverlay.style.display==='flex'){
+    closeLightbox();
+  }
+});
+
+});
