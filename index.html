@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Milind Dixit Studio</title>
 
-  <!-- SEO Meta -->
-  <meta name="description" content="Milind Dixit Studio — Producer & Composer (Student) and Lyricist. Magical, emotional, aesthetic music world.">
-  <meta name="keywords" content="Milind Dixit, Music, Producer, Composer, Lyricist, Spotify, YouTube, Amazon Music">
-  <meta name="robots" content="index, follow">
-
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -26,9 +21,9 @@
       color: white;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 15% 25%, rgba(255, 120, 200, 0.25), transparent 40%),
-        radial-gradient(circle at 85% 75%, rgba(120, 80, 255, 0.18), transparent 45%),
-        radial-gradient(circle at 50% 110%, rgba(0, 200, 255, 0.12), transparent 60%),
+        radial-gradient(circle at 15% 25%, rgba(255,120,200,0.25), transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(120,80,255,0.18), transparent 45%),
+        radial-gradient(circle at 50% 110%, rgba(0,200,255,0.12), transparent 60%),
         linear-gradient(180deg, #070716, #11112a, #18183a);
     }
 
@@ -50,10 +45,13 @@
       text-align: center;
       z-index: 1000;
     }
+
     #splash img {
       width: 150px;
-      filter: drop-shadow(0 0 15px rgba(255, 120, 200, 0.6));
+      height: auto;
+      filter: drop-shadow(0 0 15px rgba(255,120,200,0.6));
     }
+
     #heroTag {
       font-family: 'Bubblegum Sans', cursive;
       font-size: 28px;
@@ -62,11 +60,13 @@
       opacity: 0;
       margin: 10px 0 0 0;
     }
+
     @keyframes shine {
-      0% { text-shadow: 0 0 10px #ff9ff3, 0 0 20px #ff6ec7, 0 0 30px #c56fff; }
-      50% { text-shadow: 0 0 20px #ff9ff3, 0 0 30px #ff6ec7, 0 0 40px #c56fff; }
-      100% { text-shadow: 0 0 10px #ff9ff3, 0 0 20px #ff6ec7, 0 0 30px #c56fff; }
+      0% { text-shadow: 0 0 10px white, 0 0 20px #c0c0ff, 0 0 30px #a080ff; }
+      50% { text-shadow: 0 0 20px white, 0 0 30px #c0c0ff, 0 0 40px #a080ff; }
+      100% { text-shadow: 0 0 10px white, 0 0 20px #c0c0ff, 0 0 30px #a080ff; }
     }
+
     #heroTag.shine { animation: shine 2s infinite; }
 
     /* Main Content */
@@ -76,6 +76,7 @@
       padding: 20px;
       opacity: 0;
     }
+
     h2 { font-size: 24px; margin-bottom: 15px; color: #ff9ff3; }
     p { line-height: 1.6; opacity: 0.9; }
 
@@ -141,6 +142,7 @@
       color: #1a1a1a; border: 2px solid white; transition: 0.3s ease;
     }
     #collabForm button:hover { transform: translateY(-2px); }
+
   </style>
 </head>
 <body>
@@ -195,7 +197,6 @@
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     // --- Splash Animation ---
     window.addEventListener('load', () => {
@@ -203,48 +204,39 @@
       const heroTag = document.getElementById('heroTag');
       const main = document.getElementById('main');
 
-      gsap.fromTo([logo, heroTag], {scale:0, opacity:0}, {scale:1.2, opacity:1, duration:0.8, ease:"back.out(1.7)", onComplete: moveToCorner});
+      const tl = gsap.timeline({defaults:{ease:"power2.inOut"}});
+      // Pop animation
+      tl.fromTo([logo, heroTag], {scale:0, opacity:0}, {scale:1.2, opacity:1, duration:0.8});
+      // Move to corner
+      const topOffset = 20, leftOffset = 20, finalLogoScale = 0.4, finalTextScale = 0.7;
+      const rectLogo = logo.getBoundingClientRect();
+      const rectText = heroTag.getBoundingClientRect();
+      tl.to(logo, {
+        x: leftOffset - rectLogo.left,
+        y: topOffset - rectLogo.top,
+        scale: finalLogoScale,
+        duration:1.2
+      }, "<");
+      tl.to(heroTag, {
+        x: leftOffset + rectLogo.width*finalLogoScale + 10 - rectText.left,
+        y: topOffset - rectText.top + 5,
+        scale: finalTextScale,
+        duration:1.2,
+        onComplete: () => {
+          logo.style.position = "fixed";
+          logo.style.top = topOffset + "px";
+          logo.style.left = leftOffset + "px";
+          logo.style.transform = "none";
 
-      function moveToCorner() {
-        const rectLogo = logo.getBoundingClientRect();
-        const rectText = heroTag.getBoundingClientRect();
-        const topOffset = 20;
-        const leftOffset = 20;
-        const finalLogoWidth = 60;
-        const finalTextFontSize = 20;
+          heroTag.style.position = "fixed";
+          heroTag.style.top = topOffset + 5 + "px";
+          heroTag.style.left = leftOffset + rectLogo.width*finalLogoScale + 10 + "px";
+          heroTag.style.transform = "none";
+          heroTag.classList.add('shine');
 
-        gsap.to(logo, {
-          x: leftOffset - rectLogo.left,
-          y: topOffset - rectLogo.top,
-          width: finalLogoWidth,
-          height: "auto",
-          duration: 1.2,
-          ease: "power2.inOut"
-        });
-
-        gsap.to(heroTag, {
-          x: leftOffset + finalLogoWidth + 10 - rectText.left,
-          y: topOffset - rectText.top + 5,
-          fontSize: finalTextFontSize,
-          duration: 1.2,
-          ease: "power2.inOut",
-          onComplete: () => {
-            logo.style.position = "fixed";
-            logo.style.top = topOffset + "px";
-            logo.style.left = leftOffset + "px";
-            logo.style.transform = "none";
-
-            heroTag.style.position = "fixed";
-            heroTag.style.top = topOffset + 5 + "px";
-            heroTag.style.left = leftOffset + finalLogoWidth + 10 + "px";
-            heroTag.style.transform = "none";
-            heroTag.classList.add('shine');
-
-            main.style.opacity = 1;
-            document.getElementById('splash').style.display = 'none';
-          }
-        });
-      }
+          main.style.opacity = 1;
+        }
+      }, "<");
     });
 
     // --- Links Button ---
