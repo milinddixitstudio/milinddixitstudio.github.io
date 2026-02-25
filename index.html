@@ -11,21 +11,23 @@
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+<!-- Your own CSS -->
 <style>
   body {
     margin:0;
     font-family:'Segoe UI',sans-serif;
     color:white;
+    overflow-x:hidden;
     background:
       radial-gradient(circle at 15% 25%, rgba(255,120,200,0.25), transparent 40%),
       radial-gradient(circle at 85% 75%, rgba(120,80,255,0.18), transparent 45%),
       radial-gradient(circle at 50% 110%, rgba(0,200,255,0.12), transparent 60%),
       linear-gradient(180deg,#070716,#11112a,#18183a);
-    overflow-x:hidden;
   }
+
+  /* Particles container */
+  #particles-js { position:fixed; width:100%; height:100%; z-index:0; }
+
   body::after{
     content:"";
     position:fixed;
@@ -34,6 +36,7 @@
     pointer-events:none;
     opacity:0.07;
     background-image:url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    z-index:1;
   }
 
   /* Splash fade */
@@ -45,11 +48,7 @@
     text-align:center;
     z-index:1000;
   }
-  #splash img {
-    width:150px;
-    height:auto;
-    filter:drop-shadow(0 0 20px rgba(255,120,200,0.7));
-  }
+  #splash img { width:150px; filter:drop-shadow(0 0 20px rgba(255,120,200,0.7)); }
   #splash h1 {
     font-family:'Bubblegum Sans',cursive;
     font-size:32px;
@@ -69,11 +68,7 @@
     opacity:0;
     z-index:1000;
   }
-  #cornerLogo img {
-    width:50px;
-    height:auto;
-    filter:drop-shadow(0 0 10px rgba(255,120,200,0.7));
-  }
+  #cornerLogo img { width:50px; filter:drop-shadow(0 0 10px rgba(255,120,200,0.7)); }
   #cornerLogo h1 {
     font-family:'Bubblegum Sans',cursive;
     font-size:20px;
@@ -84,9 +79,11 @@
   /* Main content */
   #main{
     max-width:900px;
-    margin:100px auto 40px auto;
+    margin:120px auto 40px auto;
     padding:20px;
     opacity:0;
+    position:relative;
+    z-index:2;
   }
 
   h2{font-size:24px;margin-bottom:15px;color:#ff9ff3;}
@@ -142,6 +139,16 @@
     transform:scale(1.05);box-shadow:0 0 25px #ff6ec7;
   }
 
+  /* Lightbox */
+  #lightboxOverlay{
+    display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.85);justify-content:center;align-items:center;
+    z-index:2000;cursor:pointer;
+  }
+  #lightboxOverlay img{
+    max-width:90%;max-height:90%;border-radius:20px;box-shadow:0 0 40px #ff9ff3;
+  }
+
   /* Contact form */
   #collabForm form{
     display:flex;flex-direction:column;gap:12px;max-width:500px;margin-top:20px;
@@ -156,6 +163,9 @@
 </style>
 </head>
 <body>
+
+<!-- Particles background -->
+<div id="particles-js"></div>
 
 <!-- Splash -->
 <div id="splash">
@@ -194,11 +204,17 @@
 
   <!-- Gallery -->
   <div id="gallery">
-    <h2>Work Gallery</h2>
+    <h2>Gallery</h2>
     <div class="grid">
-      <img src="img1.png" alt="Image 1">
-      <img src="img2.png" alt="Image 2">
+      <img src="img1.jpg" alt="Milind Music 1">
+      <img src="img2.jpg" alt="Milind Music 2">
+      <img src="img3.jpg" alt="Milind Music 3">
     </div>
+  </div>
+
+  <!-- Lightbox overlay -->
+  <div id="lightboxOverlay">
+    <img id="lightboxImage" src="">
   </div>
 
   <!-- Contact -->
@@ -214,52 +230,78 @@
 
 </div>
 
+<!-- JS Libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+<!-- Your JS -->
 <script>
-  window.addEventListener('load', ()=>{
-    const splash = document.getElementById('splash');
-    const corner = document.getElementById('cornerLogo');
-    const main = document.getElementById('main');
+window.addEventListener('load', ()=>{
+  const splash=document.getElementById('splash');
+  const corner=document.getElementById('cornerLogo');
+  const main=document.getElementById('main');
 
-    // Fade in center splash
-    gsap.fromTo(splash, {opacity:0}, {opacity:1, duration:1, onComplete: ()=>{
-      // Fade out splash
-      gsap.to(splash, {opacity:0, duration:1, delay:1, onComplete: ()=>{
-        splash.style.display='none';
-        // Fade in corner logo + main content
-        gsap.to(corner, {opacity:1, duration:1});
-        gsap.to(main, {opacity:1, duration:1});
-      }});
+  // Splash fade in/out
+  gsap.fromTo(splash,{opacity:0},{opacity:1,duration:1,onComplete:()=>{
+    gsap.to(splash,{opacity:0,duration:1,delay:1,onComplete:()=>{
+      splash.style.display='none';
+      gsap.to(corner,{opacity:1,duration:1});
+      gsap.to(main,{opacity:1,duration:1});
     }});
+  }});
 
-    // Links toggle
-    const linksBtn=document.getElementById('linksBtn');
-    const linksContainer=document.getElementById('linksContainer');
-    linksBtn.addEventListener('click',()=>{
-      if(linksContainer.style.display==='flex'){
-        gsap.to(linksContainer,{height:0,opacity:0,duration:0.5,onComplete:()=>{linksContainer.style.display='none';}});
-      }else{
-        linksContainer.style.display='flex';
-        gsap.fromTo(linksContainer,{height:0,opacity:0},{height:'auto',opacity:1,duration:0.5});
-      }
-    });
+  // Links toggle
+  const linksBtn=document.getElementById('linksBtn');
+  const linksContainer=document.getElementById('linksContainer');
+  linksBtn.addEventListener('click',()=>{
+    if(linksContainer.style.display==='flex'){
+      gsap.to(linksContainer,{height:0,opacity:0,duration:0.5,onComplete:()=>{linksContainer.style.display='none';}});
+    }else{
+      linksContainer.style.display='flex';
+      gsap.fromTo(linksContainer,{height:0,opacity:0},{height:'auto',opacity:1,duration:0.5});
+    }
+  });
 
-    // Contact form AJAX
-    const form=document.querySelector('#collabForm form');
-    form.addEventListener('submit',async e=>{
-      e.preventDefault();
-      const formData=new FormData(form);
-      try{
-        await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});
-        form.reset();
-        const msg=document.createElement('p');
-        msg.innerText="Message Sent!";
-        msg.style.color="#ff9ff3";
-        form.appendChild(msg);
-        setTimeout(()=> msg.remove(),3000);
-      }catch(err){alert("Oops! Problem sending message.");}
+  // Contact form AJAX
+  const form=document.querySelector('#collabForm form');
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const formData=new FormData(form);
+    try{
+      await fetch(form.action,{method:'POST',body:formData,headers:{'Accept':'application/json'}});
+      form.reset();
+      const msg=document.createElement('p');
+      msg.innerText="Message Sent!";
+      msg.style.color="#ff9ff3";
+      form.appendChild(msg);
+      setTimeout(()=> msg.remove(),3000);
+    }catch(err){alert("Oops! Problem sending message.");}
+  });
+
+  // Gallery lightbox
+  const lightboxOverlay=document.getElementById('lightboxOverlay');
+  const lightboxImage=document.getElementById('lightboxImage');
+  document.querySelectorAll('#gallery .grid img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      lightboxImage.src=img.src;
+      lightboxOverlay.style.display='flex';
     });
   });
-</script>
+  lightboxOverlay.addEventListener('click',()=>{lightboxOverlay.style.display='none'; lightboxImage.src='';});
 
+  // Particles.js config
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {"value":60},
+      "color": {"value":["#ff9ff3","#b39ddb","#ff6ec7"]},
+      "shape": {"type":"circle"},
+      "opacity": {"value":0.5},
+      "size": {"value":3},
+      "line_linked":{"enable":false},
+      "move":{"enable":true,"speed":1.5}
+    }
+  });
+});
+</script>
 </body>
 </html>
