@@ -66,3 +66,10 @@
 #contactBubble {
   transition: opacity 0.5s ease, transform 0.3s ease;
 }
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background 1.5s ease;
+  background: #000; /* fallback */
+}
