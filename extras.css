@@ -137,3 +137,77 @@
 #musicBar button:hover {
   transform: scale(1.05);
 }
+/* Wave Animation */
+#wave {
+  width: 40px;
+  height: 10px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff9de2,
+    #ff9de2 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0.3;
+}
+
+#wave.active {
+  animation: waveMove 1s linear infinite;
+  opacity: 1;
+}
+
+@keyframes waveMove {
+  from { background-position-x: 0; }
+  to { background-position-x: 20px; }
+}
+
+/* Platform Modal */
+#platformModal {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+#platformModal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modalGlass {
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.5);
+  padding: 40px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.modalGlass a {
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  background: linear-gradient(135deg,#ff9de2,#a18cd1);
+  color: white;
+  transition: 0.3s;
+}
+
+.modalGlass a:hover {
+  transform: scale(1.05);
+}
+
+/* Background Animation */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
