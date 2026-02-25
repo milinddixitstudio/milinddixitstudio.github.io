@@ -57,14 +57,17 @@ window.addEventListener("load", function () {
 });
 function setDynamicBackground() {
   const hour = new Date().getHours();
-  const title = document.getElementById("studioTitle");
+const cornerText = document.querySelector("#cornerLogo h1");
 
-if (title) {
-  // Evening (5PM+) and Night
+if (cornerText) {
   if (hour >= 17 || hour < 6) {
-    title.style.color = "#ffffff";
+    // Evening + Night
+    cornerText.style.color = "#ffffff";
+    cornerText.style.textShadow = "0 0 10px rgba(255,255,255,0.6)";
   } else {
-    title.style.color = "#111111";
+    // Morning + Afternoon
+    cornerText.style.color = "#222";
+    cornerText.style.textShadow = "none";
   }
 }
   let gradient;
