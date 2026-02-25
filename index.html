@@ -71,7 +71,7 @@
     transition: opacity 1s ease;
     position: relative;
     z-index:2;
-    padding-top:80px;
+    padding-top:100px;
     max-width:900px;
     margin:0 auto;
   }
@@ -123,9 +123,25 @@
     margin:0 auto 20px auto;
   }
 
-  /* Links */
-  .links {
-    display:flex;
+  /* Links Button */
+  #linksButton {
+    display:block;
+    margin:20px auto;
+    padding:14px 28px;
+    border-radius:30px;
+    background: linear-gradient(135deg,#ff6ec7,#1f8eff);
+    color:white;
+    font-weight:600;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(255,255,255,0.25);
+    border:none;
+    transition:0.3s ease;
+  }
+  #linksButton:hover { transform:translateY(-4px); box-shadow:0 0 25px rgba(255,255,255,0.4); }
+
+  #linksContainer {
+    display:none;
     flex-direction: column;
     gap:15px;
     margin-bottom:40px;
@@ -142,7 +158,7 @@
     font-size:15px;
     transition:0.3s ease;
     box-shadow:0 0 15px rgba(255,255,255,0.15);
-    border: 2px solid white; /* added white bold outline */
+    border:2px solid white;
   }
   .link i { font-size:18px; }
   .link:hover { transform: translateY(-4px); box-shadow:0 0 25px rgba(255,255,255,0.35); }
@@ -152,29 +168,16 @@
   .amazon { background-color: #00A8E1; color:black; }
   .instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4); color:white; }
 
-  /* Collab Button */
-  .collab-button {
-    background: linear-gradient(135deg,#ff6ec7,#1f8eff);
-    padding:14px 30px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:600;
-    color:white;
-    transition:0.3s ease;
-    box-shadow:0 0 15px rgba(255,255,255,0.25);
-  }
-  .collab-button:hover {
-    transform: translateY(-4px);
-    box-shadow:0 0 25px rgba(255,255,255,0.4);
-  }
-
-  input[type="email"] {
+  /* Contact Form / Collab merged */
+  input[type="email"], input[type="text"], textarea {
     padding:12px 16px;
     border-radius:25px;
     border:none;
-    width:250px;
-    margin-right:10px;
+    width:100%;
+    max-width:500px;
+    margin-bottom:10px;
     outline:none;
+    resize:none;
   }
 
   input[type="submit"] {
@@ -207,8 +210,9 @@
 
 <!-- Main content -->
 <div id="main">
-  <!-- Social Links -->
-  <div class="links">
+  <!-- Links Button -->
+  <button id="linksButton">My Links</button>
+  <div id="linksContainer">
     <a class="link spotify" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4?si=wJArIUE2Tm-iooCzY4effQ" target="_blank">
       <i class="fab fa-spotify"></i> Spotify
     </a>
@@ -223,27 +227,25 @@
     </a>
   </div>
 
-  <!-- About Section -->
+  <!-- About Me Section -->
   <div class="section">
     <h2>About Me</h2>
-    <p>Hi! I'm Milind Dixit, a music producer and composer. I create music that blends calm, love, and emotions — from chill electronic beats to soulful melodies. My goal is to bring a magical and aesthetic vibe to everyone who listens. Explore my world of sound and feel the energy.</p>
+    <p>Welcome to all who wander into my world — here, music is not just sound; it’s a feeling, a story, a piece of my soul.</p>
+    <p>Myself, Milind Dixit, a Producer & Composer (Student) and a lyricist, crafting melodies that capture the calm of rainy evenings, the warmth of love, and the subtle emotions that linger in quiet moments. Every track I create is a fragment of my universe — part dream, part memory, part heartbeat — and it carries the essence of who I am.</p>
+    <p>I explore rhythms, harmonies, and textures through my digital instruments and production tools, shaping them into soundscapes that feel alive and personal. Each note, each beat is a reflection of my thoughts, my emotions, and my story — music that is truly mine, yet meant to resonate with anyone who listens.</p>
+    <p>Through my creations, I invite listeners to step into my world: to feel, to imagine, and to connect. Every project, every composition is a journey — one that grows with me, evolves with me, and carries the magic I hold within.</p>
   </div>
 
-  <!-- Contact Section -->
-  <div class="section">
-    <h2>Contact Me</h2>
-    <p>If you want to reach out or send me a message, just drop your email below and I'll get back to you!</p>
-    <form action="mailto:milinddixitstudio@gmail.com" method="post" enctype="text/plain">
+  <!-- Collab / Contact Form -->
+  <div class="section" id="collabForm">
+    <h2>Collaboration / Contact Me</h2>
+    <p>If you want to collaborate or just send a message, fill in the form below and I’ll receive it directly in my email.</p>
+    <form action="https://formspree.io/f/xnjbllzg" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <input type="submit" value="Send">
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message">
     </form>
-  </div>
-
-  <!-- Collaboration -->
-  <div class="section">
-    <h2>Collaboration Available</h2>
-    <p>I'm open to music collaborations! If you have a project or idea that fits my vibe, click the button below to reach out directly.</p>
-    <a href="mailto:milinddixitstudio@gmail.com" class="collab-button">Let's Collab</a>
   </div>
 </div>
 
@@ -290,24 +292,30 @@
     const logoTop = document.getElementById('logoTop');
     const heroTag = document.getElementById('heroTag');
     const main = document.getElementById('main');
+    const splashImg = splash.querySelector('img');
 
+    // Animate logo movement
     setTimeout(() => {
-      // Move logo to top-left
-      const splashImg = splash.querySelector('img');
       splashImg.style.transition = 'all 1s ease';
-      splashImg.style.transform = 'translate(-50%, -50%) scale(0.45)';
-      splashImg.style.position = 'fixed';
-      splashImg.style.top = '20px';
-      splashImg.style.left = '20px';
-      logoTop.style.opacity = 1;
-      heroTag.style.opacity =1;
-
-      // Fade out splash after transition
-      setTimeout(() => { splash.style.display='none'; }, 1000);
-
-      // Show main content
-      main.style.opacity =1;
+      splashImg.style.transform = 'translate(-200px, -200px) scale(0.45)';
+      setTimeout(() => {
+        logoTop.style.opacity = 1;
+        heroTag.style.opacity = 1;
+        splash.style.display = 'none';
+        main.style.opacity = 1;
+      }, 1000);
     }, 1200);
+  });
+
+  // Links toggle
+  const linksButton = document.getElementById('linksButton');
+  const linksContainer = document.getElementById('linksContainer');
+  linksButton.addEventListener('click', () => {
+    if(linksContainer.style.display === 'flex'){
+      linksContainer.style.display = 'none';
+    } else {
+      linksContainer.style.display = 'flex';
+    }
   });
 </script>
 
