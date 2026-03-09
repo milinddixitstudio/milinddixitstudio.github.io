@@ -9,25 +9,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- Font Awesome for Social Logos -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <!-- CSS -->
 <link rel="stylesheet" href="style.css">
 
 <!-- Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.10.1/tsparticles.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
 
 </head>
 <body>
 
-<!-- Animated Background -->
-<div id="background"></div>
-
-<!-- Hero Section -->
+<!-- Hero Banner with Particles -->
 <header class="hero">
+  <div id="banner">
+    <img src="MilindPic.png" alt="Milind Dixit" id="banner-pic">
+    <canvas id="particles"></canvas>
+  </div>
   <h1 class="signature">Milind Dixit</h1>
   <p class="tagline">Music Producer • Lyricist • Student</p>
 </header>
@@ -62,26 +62,26 @@
 <section class="gallery">
   <h2>Works</h2>
   <div class="gallery-grid">
-    <div class="work-item" onclick="openPopup('Lost Within')">
+    <div class="work-item" onclick="openPopup('lostwithin')">
       <img src="track1.jpg" alt="Lost Within">
       <p>Lost Within</p>
     </div>
-    <div class="work-item" onclick="openPopup('Frosted Silence')">
+    <div class="work-item" onclick="openPopup('frostedsilence')">
       <img src="track2.jpg" alt="Frosted Silence">
       <p>Frosted Silence</p>
     </div>
-    <div class="work-item" onclick="openPopup('Spread Out')">
+    <div class="work-item" onclick="openPopup('spreadout')">
       <img src="track3.jpg" alt="Spread Out">
       <p>Spread Out</p>
     </div>
-    <div class="work-item" onclick="openPopup('Trilochana')">
+    <div class="work-item" onclick="openPopup('trilochana')">
       <img src="track4.jpg" alt="Trilochana">
       <p>Trilochana</p>
     </div>
   </div>
 </section>
 
-<!-- Popup for Track Descriptions -->
+<!-- Popup -->
 <div id="popup" class="popup">
   <div class="popup-content">
     <span class="close" onclick="closePopup()">✕</span>
@@ -113,7 +113,6 @@
 <script src="script.js"></script>
 <script src="visualizer.js"></script>
 <script src="background.js"></script>
+
 </body>
 </html>
-
-
