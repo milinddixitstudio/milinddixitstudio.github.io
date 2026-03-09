@@ -1,0 +1,149 @@
+body{
+margin:0;
+font-family:Inter;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+#background{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(circle,rgba(255,255,255,0.1),transparent);
+pointer-events:none;
+transform:translate(-50%,-50%);
+}
+
+.hero{
+text-align:center;
+padding:160px 20px;
+}
+
+.hero h1{
+font-family:Orbitron;
+font-size:80px;
+letter-spacing:8px;
+}
+
+section{
+padding:80px 20px;
+text-align:center;
+}
+
+.linkgrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:900px;
+margin:auto;
+}
+
+.linkgrid a{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+padding:20px;
+border-radius:12px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.linkgrid a:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px rgba(255,255,255,0.3);
+}
+
+.spotify:hover{box-shadow:0 0 25px #1db954;}
+.youtube:hover{box-shadow:0 0 25px red;}
+.instagram:hover{box-shadow:0 0 25px #ff4ecd;}
+.discord:hover{box-shadow:0 0 25px #5865f2;}
+.amazon:hover{box-shadow:0 0 25px orange;}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:900px;
+margin:auto;
+}
+
+.album img{
+width:100%;
+border-radius:12px;
+transition:0.4s;
+cursor:pointer;
+}
+
+.album img:hover{
+transform:scale(1.1) rotateY(8deg);
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+display:none;
+align-items:center;
+justify-content:center;
+}
+
+.popup-content{
+background:#111;
+padding:40px;
+border-radius:12px;
+}
+
+.visualizer{
+display:flex;
+gap:5px;
+margin:20px 0;
+}
+
+.visualizer div{
+width:6px;
+height:20px;
+background:white;
+animation:music 1s infinite;
+}
+
+@keyframes music{
+0%{height:10px}
+50%{height:45px}
+100%{height:10px}
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:12px;
+max-width:400px;
+margin:auto;
+}
+
+input,textarea{
+padding:12px;
+border:none;
+border-radius:6px;
+}
+
+button{
+padding:12px;
+border:none;
+background:white;
+cursor:pointer;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Milind Dixit</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="background"></div>
+<div class="cursor-glow"></div>
+
+<header class="hero">
+
+<h1>Milind Dixit</h1>
+<p>Music Producer • Composer</p>
+
+</header>
+
+<section class="about">
+
+<h2>About</h2>
+
+<p>
+Welcome to my music universe. Explore sound, visuals, and creativity.
+</p>
+
+</section>
+
+<section class="links">
+
+<h2>Music & Socials</h2>
+
+<div class="linkgrid">
+
+<a class="spotify" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank">
+<i class="fa-brands fa-spotify"></i> Spotify
+</a>
+
+<a class="youtube" href="https://youtube.com/@milinddixitstudio" target="_blank">
+<i class="fa-brands fa-youtube"></i> YouTube
+</a>
+
+<a class="ytmusic" href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank">
+<i class="fa-brands fa-youtube"></i> YouTube Music
+</a>
+
+<a class="amazon" href="https://music.amazon.in/artists/B0GPH5V9SY/milind-dixit" target="_blank">
+<i class="fa-brands fa-amazon"></i> Amazon Music
+</a>
+
+<a class="instagram" href="https://www.instagram.com/milinddixitstudio/" target="_blank">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
+
+<a class="discord" href="https://discord.com/invite/zsJuGUmskE" target="_blank">
+<i class="fa-brands fa-discord"></i> Discord
+</a>
+
+<a class="apple disabled">
+<i class="fa-brands fa-apple"></i> Apple Music (Coming Soon)
+</a>
+
+</div>
+
+</section>
+
+<section class="gallery">
+
+<h2>Works</h2>
+
+<div class="gallery-grid">
+
+<div class="album" onclick="openTrack('Track One','Description of this track.')">
+<img src="assets/covers/track1.jpg">
+</div>
+
+<div class="album" onclick="openTrack('Track Two','Description of this track.')">
+<img src="assets/covers/track2.jpg">
+</div>
+
+<div class="album" onclick="openTrack('Track Three','Description of this track.')">
+<img src="assets/covers/track3.jpg">
+</div>
+
+</div>
+
+</section>
+
+<div id="popup" class="popup">
+
+<div class="popup-content">
+
+<h3 id="trackTitle"></h3>
+<p id="trackDesc"></p>
+
+<div class="visualizer">
+<div></div><div></div><div></div><div></div><div></div>
+</div>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+
+</div>
+
+<section class="contact">
+
+<h2>Contact</h2>
+
+<form>
+
+<input type="text" placeholder="Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</section>
+
+<footer>
+
+<p>© 2026 Milind Dixit</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+<script src="visualizer.js"></script>
+
+<script src="background.js"></script>
+
+</body>
+</html>

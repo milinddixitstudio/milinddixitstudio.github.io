@@ -1,0 +1,10 @@
+VANTA.WAVES({
+el:"#background",
+mouseControls:true,
+touchControls:true,
+gyroControls:false,
+color:0x222222,
+shininess:40,
+waveHeight:20,
+waveSpeed:1
+})
