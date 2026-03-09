@@ -58,23 +58,3 @@ footer.classList.add("hide");
 }else{
 footer.classList.remove("hide");
 }
-
-});
-
-#footer{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-text-align:center;
-font-size:14px;
-letter-spacing:2px;
-color:#aaa;
-z-index:999;
-transition:opacity 0.3s ease;
-}
-
-#footer.hide{
-opacity:0;
-pointer-events:none;
-}
