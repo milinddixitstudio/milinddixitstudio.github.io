@@ -13,14 +13,6 @@ document.getElementById("popup").style.display="none"
 
 }
 
-document.addEventListener("mousemove",e=>{
-
-const glow=document.querySelector(".cursor-glow")
-
-glow.style.left=e.clientX+"px"
-glow.style.top=e.clientY+"px"
-
-})
 const canvas=document.getElementById("stars")
 const ctx=canvas.getContext("2d")
 
@@ -53,4 +45,5 @@ requestAnimationFrame(drawStars)
 }
 
 drawStars()
+
 
