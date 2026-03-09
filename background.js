@@ -1,21 +1,14 @@
-// Animated ambient gradient background
-const bg=document.getElementById("background")
-let hue=200
-function animateBG(){
-  hue+=0.1
-  bg.style.background=`radial-gradient(circle at center, hsl(${hue},30%,15%), #000)`
-  requestAnimationFrame(animateBG)
-}
-animateBG()
-
-// VANTA waves animation
-VANTA.WAVES({
-  el:"#background",
-  mouseControls:true,
-  touchControls:true,
-  gyroControls:false,
-  color:0x111111,
-  shininess:50,
-  waveHeight:20,
-  waveSpeed:1
+tsParticles.load("particles", {
+  particles: {
+    number: { value: 60 },
+    color: { value: ["#ff6ec7", "#ffb347", "#ffffff"] },
+    shape: { type: "circle" },
+    opacity: { value: 0.7 },
+    size: { value: { min: 2, max: 6 } },
+    move: { enable: true, speed: 1, direction: "none", outModes: "bounce" }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "repulse" } }
+  },
+  retina_detect: true
 });
