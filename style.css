@@ -197,3 +197,11 @@ button{
   opacity:0;
   pointer-events:none;
 }
+/* Center all section headings */
+section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #ff6ec7; /* optional musical color */
+  text-shadow: 0 0 5px #ffb347;
+}
