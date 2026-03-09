@@ -45,7 +45,7 @@ body{
   font-family:'Great Vibes',cursive;
   font-size:95px;
   letter-spacing:2px;
-  color:white;
+  color:#ffebc1;
   text-shadow:0 0 10px #fff, 0 0 20px #ccc;
 }
 
@@ -207,3 +207,4 @@ button{
   opacity:0;
   pointer-events:none;
 }
+
