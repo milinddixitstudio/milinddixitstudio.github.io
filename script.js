@@ -46,4 +46,17 @@ requestAnimationFrame(drawStars)
 
 drawStars()
 
+const footer = document.getElementById("footer");
 
+window.addEventListener("scroll", () => {
+
+const pageHeight = document.body.scrollHeight;
+const scrollPosition = window.innerHeight + window.scrollY;
+
+if(scrollPosition >= pageHeight - 100){
+footer.classList.add("hide");
+}else{
+footer.classList.remove("hide");
+}
+
+});
