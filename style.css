@@ -42,11 +42,18 @@ body{
 }
 
 .signature {
-  font-family:'Great Vibes',cursive;
+  font-family:'Great Vibes', cursive;
   font-size:95px;
   letter-spacing:2px;
-  color:#ffebc1;
-  text-shadow:0 0 10px #fff, 0 0 20px #ccc;
+  color:white; /* keep white */
+  
+  /* Add subtle background behind text for readability */
+  background: rgba(0, 0, 0, 0.2); /* soft dark overlay */
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 20px;
+
+  text-shadow: 0 0 10px #fff, 0 0 20px #ccc; /* optional glow */
 }
 
 .tagline {
@@ -207,4 +214,5 @@ button{
   opacity:0;
   pointer-events:none;
 }
+
 
