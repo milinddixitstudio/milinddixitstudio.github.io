@@ -82,16 +82,36 @@ transform:scale(1.1) rotateY(8deg);
 }
 
 .popup{
+display:none;
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.85);
-display:none;
-align-items:center;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(8px);
 justify-content:center;
+align-items:center;
+z-index:1000;
 }
+
+.popup-content{
+background:#111;
+padding:40px;
+border-radius:12px;
+max-width:500px;
+text-align:center;
+color:white;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:25px;
+cursor:pointer;
+}
+
 
 .popup-content{
 background:#111;
@@ -197,3 +217,4 @@ transition:opacity 0.3s ease;
 opacity:0;
 pointer-events:none;
 }
+
