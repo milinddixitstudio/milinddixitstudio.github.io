@@ -18,7 +18,7 @@ body{
   position: relative;
   width: 100%;
   height: 400px;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 20px;
 }
 
@@ -27,9 +27,10 @@ body{
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  max-width:300px;
-  border-radius:20px;
-  box-shadow:0 0 50px rgba(255,200,255,0.5);
+  max-width:250px;
+  border-radius:50%;
+  box-shadow:0 0 60px rgba(255,255,255,0.4);
+  filter: drop-shadow(0 0 20px #ffb347) drop-shadow(0 0 20px #ff6ec7);
   z-index:2;
 }
 
@@ -44,14 +45,23 @@ body{
   font-family:'Great Vibes',cursive;
   font-size:95px;
   letter-spacing:2px;
-  color:#ff6ec7;
-  text-shadow:0 0 10px #ff6ec7,0 0 20px #ffb347;
+  color:white;
+  text-shadow:0 0 10px #fff, 0 0 20px #ccc;
 }
 
 .tagline {
   margin-top:10px;
   color:#555;
   letter-spacing:2px;
+}
+
+/* Section headings */
+section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.3);
 }
 
 /* About Section */
@@ -63,7 +73,7 @@ body{
 .about-text{
   line-height:1.8;
   font-size:18px;
-  opacity:0.85;
+  color:#111;
 }
 .about-text p{
   margin-bottom:20px;
@@ -105,7 +115,7 @@ body{
 }
 .work-item img{
   width:100%;
-  border-radius:12px;
+  border-radius:20px;
   transition:0.4s;
   cursor:pointer;
 }
@@ -196,12 +206,4 @@ button{
 #footer.hide{
   opacity:0;
   pointer-events:none;
-}
-/* Center all section headings */
-section h2 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 40px;
-  color: #ff6ec7; /* optional musical color */
-  text-shadow: 0 0 5px #ffb347;
 }
