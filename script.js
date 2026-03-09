@@ -56,4 +56,18 @@ window.addEventListener("scroll", () => {
   footer.classList.toggle("hide", scrollPosition >= pageHeight - 100);
 });
 
+// Contact Form Submission via EmailJS
+const contactForm = document.querySelector(".contact form");
 
+contactForm.addEventListener("submit", function(e){
+  e.preventDefault(); // prevent page reload
+
+  // send email using EmailJS
+  emailjs.sendForm('service_a4b3zu3', 'template_ioithmv', this)
+    .then(function(){
+      alert("Message sent successfully!");
+      contactForm.reset();
+    }, function(error){
+      alert("Oops! Something went wrong:\n" + JSON.stringify(error));
+    });
+});
