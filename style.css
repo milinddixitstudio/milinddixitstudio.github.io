@@ -1,0 +1,27 @@
+body{
+background:#0a0a0a;
+color:white;
+font-family:Arial;
+text-align:center;
+}
+
+.hero{
+padding:120px;
+}
+
+h1{
+font-size:60px;
+letter-spacing:3px;
+}
+
+.links a{
+display:block;
+margin:10px;
+color:white;
+text-decoration:none;
+border:1px solid white;
+padding:10px;
+width:200px;
+margin-left:auto;
+margin-right:auto;
+}
