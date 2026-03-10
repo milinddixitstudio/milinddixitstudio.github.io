@@ -191,3 +191,76 @@ grid-template-columns:1fr;
 }
 
 }
+
+/* ---------- GLASS EFFECT POPUP ---------- */
+
+.popup-content{
+background: rgba(255,255,255,0.65);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+border: 1px solid rgba(255,255,255,0.4);
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+animation: popupFade 0.35s ease;
+}
+
+/* ---------- SMOOTH POPUP ANIMATION ---------- */
+
+@keyframes popupFade{
+from{
+opacity:0;
+transform:scale(0.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* ---------- MUSIC LAB HOVER EFFECT ---------- */
+
+.track{
+transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.track:hover{
+transform: translateY(-8px);
+box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+}
+
+.track img{
+transition: transform 0.4s ease;
+}
+
+.track:hover img{
+transform: scale(1.05);
+}
+
+/* ---------- SOCIAL BUTTON HOVER ---------- */
+
+.circle{
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.circle:hover{
+transform: scale(1.1);
+box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ---------- SIDEBAR SMOOTH SLIDE ---------- */
+
+.sidebar{
+transition: left 0.35s ease;
+}
+
+/* ---------- PAGE FADE TRANSITION ---------- */
+
+body{
+opacity:0;
+animation: pageFade 0.6s ease forwards;
+}
+
+@keyframes pageFade{
+to{
+opacity:1;
+}
+}
