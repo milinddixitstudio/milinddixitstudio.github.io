@@ -181,3 +181,41 @@ padding:80px 30px;
 }
 
 }
+
+/* SQUARE ALBUMS */
+
+.track img{
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* DESCRIPTION PANEL */
+
+.desc-panel{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:2000;
+}
+
+.desc-box{
+background:white;
+padding:35px;
+border-radius:14px;
+max-width:420px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+}
+
+.close-btn{
+font-size:26px;
+cursor:pointer;
+float:right;
+}
