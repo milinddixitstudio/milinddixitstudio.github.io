@@ -1,166 +1,44 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>Milind Dixit • Music Universe</title>
-
+<title>Milind Dixit</title>
 <link rel="stylesheet" href="style.css">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body class="home">
 
-<div id="particles"></div>
-
-<!-- LANDING -->
-
-<div id="landing" class="screen">
-
-<div class="portrait-wrapper">
-
-<div class="energy-ring"></div>
-
-<img src="MilindPic.png" class="portrait">
-
+<header class="navbar">
+<div class="logo">
+<img src="milind-logo.png">
 </div>
 
-<img src="milind-logo.png" class="logo">
+<nav>
+<a href="music.html">Music Lab</a>
+<a href="links.html">Social & Links</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Connect With Me</a>
+</nav>
 
-<button class="btn" onclick="enterStudio()">Enter Studio</button>
+<div class="menu-btn" onclick="openSidebar()">☰</div>
+</header>
 
+<div class="sidebar" id="sidebar">
+<a href="index.html">Home</a>
+<a href="music.html">Music Lab</a>
+<a href="links.html">Social & Links</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Connect With Me</a>
 </div>
 
-<!-- MAIN MENU -->
-
-<div id="menu" class="screen hidden">
-
-<h1>Milind Dixit Universe</h1>
-
-<div class="menu-buttons">
-
-<button class="btn" onclick="openScreen('music')">Music Lab</button>
-
-<button class="btn" onclick="openScreen('social')">Studio Broadcast</button>
-
-<button class="btn" onclick="openScreen('contact')">Send Transmission</button>
-
+<section class="hero">
+<img src="MilindPic.png" class="hero-img">
+<div class="hero-overlay">
+<img src="milind-logo.png" class="hero-logo">
 </div>
+</section>
 
-</div>
-
-<!-- MUSIC LAB -->
-
-<div id="music" class="screen hidden">
-
-<button class="back" onclick="backMenu()">← Back</button>
-
-<h1>Music Lab</h1>
-
-<div id="trackGrid" class="grid"></div>
-
-</div>
-
-<!-- SOCIAL -->
-
-<div class="social-grid">
-
-<a href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank">
-<i class="fa-brands fa-spotify"></i> Spotify
-</a>
-
-<a href="https://youtube.com/@milinddixitstudio" target="_blank">
-<i class="fa-brands fa-youtube"></i> YouTube
-</a>
-
-<a href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank">
-<i class="fa-brands fa-youtube"></i> YouTube Music
-</a>
-
-<a href="https://www.instagram.com/milinddixitstudio/" target="_blank">
-<i class="fa-brands fa-instagram"></i> Instagram
-</a>
-
-<a href="https://music.amazon.in/artists/B0GPH5V9SY/milind-dixit?marketplaceId=A3K6Y4MI8GDYMT&musicTerritory=IN&ref=dm_sh_uu06Uqb3xVeQIYpOVyLQtef9g" target="_blank">
-<i class="fa-brands fa-amazon"></i> Amazon Music
-</a>
-
-<a href="#" class="coming">
-<i class="fa-brands fa-apple"></i> Apple Music (Coming Soon)
-</a>
-
-<a href="https://discord.com/invite/zsJuGUmskE" target="_blank">
-<i class="fa-brands fa-discord"></i> Discord
-</a>
-
-</div>
-
-
-<!-- CONTACT -->
-
-<div id="contact" class="screen hidden">
-
-<button class="back" onclick="backMenu()">← Back</button>
-
-<h1>Contact</h1>
-
-<form id="contact-form">
-
-<input name="name" placeholder="Your Name" required>
-
-<input name="email" placeholder="Your Email" required>
-
-<textarea name="message" placeholder="Message"></textarea>
-
-<button class="btn">Send</button>
-
-</form>
-
-</div>
-
-<!-- TRACK POPUP -->
-
-<div id="popup" class="popup">
-
-<div class="popup-content">
-
-<span onclick="closePopup()" class="close">×</span>
-
-<img id="popup-img">
-
-<h2 id="popup-title"></h2>
-
-<p id="popup-text"></p>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>© Milind Dixit — All Rights Reserved</p>
-
-</footer>
-
-<script src="tracks.js"></script>
-
-<script src="main.js"></script>
-
-<script src="email.js"></script>
-
+<script src="script.js"></script>
 </body>
-
 </html>
-
-
-
