@@ -1,31 +1,71 @@
 tsParticles.load("particles",{
 background:{color:"#0f0f1a"},
-particles:{number:{value:80},color:{value:"#4cc9f0"},move:{enable:true,speed:1}}
+particles:{
+number:{value:80},
+color:{value:"#4cc9f0"},
+move:{enable:true,speed:1}
+}
 })
 
-function enterStudio(){
+/* SCREEN SYSTEM */
 
-document.getElementById("landing").classList.add("hidden")
+function showScreen(id){
 
-document.getElementById("menu").classList.remove("hidden")
-
-}
-
-function openScreen(id){
-
-document.getElementById("menu").classList.add("hidden")
+document.querySelectorAll(".screen").forEach(screen=>{
+screen.classList.add("hidden")
+})
 
 document.getElementById(id).classList.remove("hidden")
 
 }
 
-function backMenu(){
+/* ENTER STUDIO */
 
-document.querySelectorAll(".screen").forEach(s=>s.classList.add("hidden"))
+function enterStudio(){
 
-document.getElementById("menu").classList.remove("hidden")
+showScreen("menu")
+
+history.pushState({page:"menu"},"","")
 
 }
+
+/* OPEN SCREENS */
+
+function openScreen(id){
+
+showScreen(id)
+
+history.pushState({page:id},"","")
+
+}
+
+/* BACK BUTTON */
+
+function backMenu(){
+
+showScreen("menu")
+
+history.pushState({page:"menu"},"","")
+
+}
+
+/* BROWSER BACK SUPPORT */
+
+window.onpopstate=function(event){
+
+if(event.state && event.state.page){
+
+showScreen(event.state.page)
+
+}else{
+
+showScreen("landing")
+
+}
+
+}
+
+/* TRACK GRID */
 
 const grid=document.getElementById("trackGrid")
 
@@ -35,13 +75,18 @@ const card=document.createElement("div")
 
 card.className="track"
 
-card.innerHTML=`<img src="${track.image}"><h3>${track.title}</h3>`
+card.innerHTML=` <img src="${track.image}">
+
+<h3>${track.title}</h3>
+`
 
 card.onclick=()=>openPopup(track)
 
 grid.appendChild(card)
 
 })
+
+/* POPUP */
 
 function openPopup(track){
 
