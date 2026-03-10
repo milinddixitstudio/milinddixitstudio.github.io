@@ -35,3 +35,27 @@ document.getElementById("popup-text").innerHTML=text;
 document.getElementById("popup").style.display="flex";
 
 }
+
+/* ---------- SMOOTH PAGE TRANSITION ---------- */
+
+document.querySelectorAll("a").forEach(link => {
+
+link.addEventListener("click", function(e){
+
+const href = this.getAttribute("href");
+
+if(href && href.endsWith(".html")){
+
+e.preventDefault();
+
+document.body.style.opacity = "0";
+
+setTimeout(() => {
+window.location.href = href;
+}, 300);
+
+}
+
+});
+
+});
