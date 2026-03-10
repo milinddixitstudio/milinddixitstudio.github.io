@@ -10,12 +10,14 @@ background:white;
 .navbar{
 position:absolute;
 top:0;
+left:0;
 width:100%;
 display:flex;
 justify-content:flex-end;
 gap:15px;
 padding:25px 50px;
 box-sizing:border-box;
+z-index:10;
 }
 
 .navbar a{
@@ -270,3 +272,4 @@ transition:0.25s;
 transform:translateY(-5px) scale(1.03);
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
+
