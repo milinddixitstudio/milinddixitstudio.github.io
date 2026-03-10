@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Milind Dixit • Music Universe</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<section class="hero">
+
+<div class="portrait-wrapper">
+
+<div class="energy-ring"></div>
+
+<img src="MilindPic.png" class="portrait">
+
+</div>
+
+<img src="milind-logo.png" class="logo">
+
+<h2 class="tagline">Music Producer • Lyricist • Student</h2>
+
+<button class="enter-btn" onclick="enterStudio()">Enter Studio</button>
+
+</section>
+
+<section class="studio">
+
+<h1>Music Lab</h1>
+
+<div id="trackGrid" class="grid"></div>
+
+</section>
+
+<section class="social">
+
+<h1>Studio Broadcast</h1>
+
+<div class="social-grid">
+
+<a href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank" class="social-card">
+<i class="fa-brands fa-spotify"></i> Spotify
+</a>
+
+<a href="https://youtube.com/@milinddixitstudio" target="_blank" class="social-card">
+<i class="fa-brands fa-youtube"></i> YouTube
+</a>
+
+<a href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank" class="social-card">
+<i class="fa-solid fa-headphones"></i> YouTube Music
+</a>
+
+<a href="https://www.instagram.com/milinddixitstudio/" target="_blank" class="social-card">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
+
+</div>
+
+</section>
+
+<section class="contact">
+
+<h1>Send Transmission</h1>
+
+<form id="contact-form">
+
+<input name="name" placeholder="Your Name" required>
+
+<input name="email" placeholder="Your Email" required>
+
+<textarea name="message" placeholder="Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</section>
+
+<div id="popup" class="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">×</span>
+
+<img id="popup-img">
+
+<h2 id="popup-title"></h2>
+
+<p id="popup-text"></p>
+
+</div>
+
+</div>
+
+<script src="tracks.js"></script>
+
+<script src="main.js"></script>
+
+<script src="email.js"></script>
+
+</body>
+</html>
+
 
