@@ -287,3 +287,56 @@ opacity:0;
 }
 
 }
+
+/* LANDING SCREEN ALIGNMENT FIX */
+
+#landing{
+height:100vh !important;
+width:100%;
+display:flex !important;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+gap:30px;
+position:relative;
+}
+
+/* Profile Image */
+
+.profile-pic{
+width:170px;
+height:170px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #5edbff;
+box-shadow:0 0 25px #5edbff;
+margin:0 auto;
+display:block;
+}
+
+/* Signature Logo */
+
+.signature-logo{
+width:320px;
+max-width:80%;
+display:block;
+margin:0 auto;
+}
+
+/* Enter Studio Button */
+
+.enter-btn{
+padding:14px 30px;
+border-radius:30px;
+border:none;
+background:linear-gradient(45deg,#5edbff,#7df0ff);
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.enter-btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 15px #5edbff;
+}
