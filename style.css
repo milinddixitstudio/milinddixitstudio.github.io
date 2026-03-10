@@ -259,3 +259,14 @@ padding:8px;
 transform:translateY(-6px) scale(1.03);
 box-shadow:0 10px 30px rgba(0,0,0,0.12);
 }
+
+/* SOCIAL BUTTON HOVER */
+
+.social{
+transition:0.25s;
+}
+
+.social:hover{
+transform:translateY(-5px) scale(1.03);
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
