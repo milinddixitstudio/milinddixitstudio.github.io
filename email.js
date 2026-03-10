@@ -1,7 +1,5 @@
 (function(){
-
 emailjs.init("ZGZNv447PhVYVCyDE")
-
 })()
 
 document.getElementById("contact-form")
@@ -15,12 +13,6 @@ emailjs.sendForm(
 this
 )
 
-.then(function(){
-
-alert("Message sent successfully!")
+.then(()=>alert("Message Sent Successfully"))
 
 })
-
-})
-
-
