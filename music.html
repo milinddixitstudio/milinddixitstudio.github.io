@@ -26,22 +26,22 @@
 
 <div class="music-grid">
 
-<div class="track">
+<div class="track" onclick="openPanel('t1')">
 <img src="track1.jpg">
 <h3>Lost Within</h3>
 </div>
 
-<div class="track">
+<div class="track" onclick="openPanel('t2')">
 <img src="track2.jpg">
 <h3>Frosted Silence</h3>
 </div>
 
-<div class="track">
+<div class="track" onclick="openPanel('t3')">
 <img src="track3.jpg">
 <h3>Spread Out</h3>
 </div>
 
-<div class="track">
+<div class="track" onclick="openPanel('t4')">
 <img src="track4.jpg">
 <h3>Trilochana (Upcoming)</h3>
 </div>
@@ -50,9 +50,70 @@
 
 </div>
 
+
+<div id="desc-panel" class="desc-panel">
+
+<div class="desc-box">
+
+<span class="close-btn" onclick="closePanel()">×</span>
+
+<h2 id="panel-title"></h2>
+
+<p id="panel-text"></p>
+
+</div>
+
+</div>
+
+
 <div class="footer">
 © Milind Dixit | All Sound rights reserved
 </div>
+
+
+<script>
+
+const tracks = {
+
+t1:{
+title:"Lost Within",
+text:"Lost Within explores a cinematic emotional atmosphere built on layered ambient textures and evolving sound design."
+},
+
+t2:{
+title:"Frosted Silence",
+text:"Frosted Silence captures a minimal soundscape focused on calm tonal movement and subtle atmospheric progression."
+},
+
+t3:{
+title:"Spread Out",
+text:"Spread Out experiments with spacious sonic environments, creating a sense of openness and drifting musical motion."
+},
+
+t4:{
+title:"Trilochana",
+text:"Trilochana is an upcoming production exploring deeper tonal narratives and expressive cinematic sound design."
+}
+
+}
+
+function openPanel(id){
+
+document.getElementById("desc-panel").style.display="flex"
+
+document.getElementById("panel-title").innerText=tracks[id].title
+
+document.getElementById("panel-text").innerText=tracks[id].text
+
+}
+
+function closePanel(){
+
+document.getElementById("desc-panel").style.display="none"
+
+}
+
+</script>
 
 </body>
 
