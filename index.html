@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Milind Dixit • Music Universe</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -24,7 +23,9 @@
 
 <div id="particles"></div>
 
-<section class="hero">
+<!-- LANDING -->
+
+<div id="landing" class="screen">
 
 <div class="portrait-wrapper">
 
@@ -36,47 +37,67 @@
 
 <img src="milind-logo.png" class="logo">
 
-<h2 class="tagline">Music Producer • Lyricist • Student</h2>
+<button class="btn" onclick="enterStudio()">Enter Studio</button>
 
-<button class="enter-btn" onclick="enterStudio()">Enter Studio</button>
+</div>
 
-</section>
+<!-- MAIN MENU -->
 
-<section class="studio">
+<div id="menu" class="screen hidden">
+
+<h1>Milind Dixit Universe</h1>
+
+<div class="menu-buttons">
+
+<button class="btn" onclick="openScreen('music')">Music Lab</button>
+
+<button class="btn" onclick="openScreen('social')">Studio Broadcast</button>
+
+<button class="btn" onclick="openScreen('contact')">Send Transmission</button>
+
+</div>
+
+</div>
+
+<!-- MUSIC LAB -->
+
+<div id="music" class="screen hidden">
+
+<button class="back" onclick="backMenu()">← Back</button>
 
 <h1>Music Lab</h1>
 
 <div id="trackGrid" class="grid"></div>
 
-</section>
+</div>
 
-<section class="social">
+<!-- SOCIAL -->
+
+<div id="social" class="screen hidden">
+
+<button class="back" onclick="backMenu()">← Back</button>
 
 <h1>Studio Broadcast</h1>
 
 <div class="social-grid">
 
-<a href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank" class="social-card">
-<i class="fa-brands fa-spotify"></i> Spotify
-</a>
+<a href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank">Spotify</a>
 
-<a href="https://youtube.com/@milinddixitstudio" target="_blank" class="social-card">
-<i class="fa-brands fa-youtube"></i> YouTube
-</a>
+<a href="https://youtube.com/@milinddixitstudio" target="_blank">YouTube</a>
 
-<a href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank" class="social-card">
-<i class="fa-solid fa-headphones"></i> YouTube Music
-</a>
+<a href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank">YouTube Music</a>
 
-<a href="https://www.instagram.com/milinddixitstudio/" target="_blank" class="social-card">
-<i class="fa-brands fa-instagram"></i> Instagram
-</a>
+<a href="https://www.instagram.com/milinddixitstudio/" target="_blank">Instagram</a>
 
 </div>
 
-</section>
+</div>
 
-<section class="contact">
+<!-- CONTACT -->
+
+<div id="contact" class="screen hidden">
+
+<button class="back" onclick="backMenu()">← Back</button>
 
 <h1>Send Transmission</h1>
 
@@ -88,17 +109,19 @@
 
 <textarea name="message" placeholder="Message"></textarea>
 
-<button type="submit">Send Message</button>
+<button class="btn">Send</button>
 
 </form>
 
-</section>
+</div>
+
+<!-- TRACK POPUP -->
 
 <div id="popup" class="popup">
 
 <div class="popup-content">
 
-<span class="close" onclick="closePopup()">×</span>
+<span onclick="closePopup()" class="close">×</span>
 
 <img id="popup-img">
 
@@ -110,6 +133,12 @@
 
 </div>
 
+<footer>
+
+<p>© Milind Dixit — All Rights Reserved</p>
+
+</footer>
+
 <script src="tracks.js"></script>
 
 <script src="main.js"></script>
@@ -117,6 +146,5 @@
 <script src="email.js"></script>
 
 </body>
+
 </html>
-
-
