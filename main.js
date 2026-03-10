@@ -1,15 +1,31 @@
 tsParticles.load("particles",{
-
 background:{color:"#0f0f1a"},
+particles:{number:{value:80},color:{value:"#4cc9f0"},move:{enable:true,speed:1}}
+})
 
-particles:{
-number:{value:90},
-color:{value:"#4cc9f0"},
-links:{enable:true,color:"#4cc9f0"},
-move:{enable:true,speed:1}
+function enterStudio(){
+
+document.getElementById("landing").classList.add("hidden")
+
+document.getElementById("menu").classList.remove("hidden")
+
 }
 
-})
+function openScreen(id){
+
+document.getElementById("menu").classList.add("hidden")
+
+document.getElementById(id).classList.remove("hidden")
+
+}
+
+function backMenu(){
+
+document.querySelectorAll(".screen").forEach(s=>s.classList.add("hidden"))
+
+document.getElementById("menu").classList.remove("hidden")
+
+}
 
 const grid=document.getElementById("trackGrid")
 
@@ -19,10 +35,7 @@ const card=document.createElement("div")
 
 card.className="track"
 
-card.innerHTML=` <img src="${track.image}">
-
-<h3>${track.title}</h3>
-`
+card.innerHTML=`<img src="${track.image}"><h3>${track.title}</h3>`
 
 card.onclick=()=>openPopup(track)
 
@@ -47,13 +60,3 @@ function closePopup(){
 document.getElementById("popup").style.display="none"
 
 }
-
-function enterStudio(){
-
-document.querySelector(".studio").scrollIntoView({
-behavior:"smooth"
-})
-
-}
-
-
