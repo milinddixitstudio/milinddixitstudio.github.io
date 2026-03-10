@@ -247,3 +247,18 @@ text-align:center;
 font-size:14px;
 opacity:0.65;
 }
+
+.social-grid a i{
+margin-right:10px;
+font-size:20px;
+}
+
+.coming{
+opacity:0.6;
+cursor:not-allowed;
+}
+
+.coming:hover{
+background:#1a1a2e;
+color:white;
+}
