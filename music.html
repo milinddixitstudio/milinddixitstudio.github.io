@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Music Lab</title>
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<header class="navbar">
+<div class="logo"><img src="milind-logo.png"></div>
+
+<nav>
+<a href="music.html">Music Lab</a>
+<a href="links.html">Social & Links</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Connect With Me</a>
+</nav>
+
+<div class="menu-btn" onclick="openSidebar()">☰</div>
+</header>
+
+<div class="sidebar" id="sidebar">
+<a href="index.html">Home</a>
+<a href="music.html">Music Lab</a>
+<a href="links.html">Social & Links</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Connect With Me</a>
+</div>
+
+<section class="music-grid">
+
+<div class="track" onclick="openTrack('lost')">
+<img src="track1.jpg">
+<h3>Lost Within</h3>
+</div>
+
+<div class="track" onclick="openTrack('frost')">
+<img src="track2.jpg">
+<h3>Frosted Silence</h3>
+</div>
+
+<div class="track" onclick="openTrack('spread')">
+<img src="track3.jpg">
+<h3>Spread Out</h3>
+</div>
+
+<div class="track" onclick="openTrack('trilochana')">
+<img src="track4.jpg">
+<h3>Trilochana</h3>
+</div>
+
+</section>
+
+<div class="popup" id="popup">
+<div class="popup-content">
+<span onclick="closePopup()">✕</span>
+<div id="popup-text"></div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
