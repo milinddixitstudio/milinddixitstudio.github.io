@@ -7,7 +7,7 @@
   <meta name="description" content="Milind Dixit Studio blends cinematic atmosphere, immersive sound design, and a bold independent creative identity in a single immersive scrolling experience.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -18,345 +18,423 @@
   </script>
 </head>
 <body>
-  <div class="site-backdrop">
-    <div class="grid-glow grid-glow-a"></div>
-    <div class="grid-glow grid-glow-b"></div>
+  <div class="fx-stage" aria-hidden="true">
+    <div class="fx-gradient fx-gradient-a"></div>
+    <div class="fx-gradient fx-gradient-b"></div>
+    <div class="fx-gradient fx-gradient-c"></div>
+    <div class="fx-grid"></div>
+    <div class="fx-noise"></div>
+    <div class="fx-lights">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
+
+  <div class="pointer-halo" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <nav class="navbar">
     <a class="brand" href="#home" aria-label="Milind Dixit Studio Home">
       <span class="brand-mark">Milind Dixit</span>
-      <span class="brand-sub">Studio</span>
+      <span class="brand-sub">Music Systems</span>
     </a>
     <div class="nav-links">
       <a href="#music" data-section-link>Music Lab</a>
-      <a href="#socials" data-section-link>Socials</a>
-      <a href="#about" data-section-link>About</a>
+      <a href="#socials" data-section-link>Platforms</a>
+      <a href="#about" data-section-link>Profile</a>
       <a href="#connect" data-section-link>Connect</a>
       <a href="https://www.youtube.com/@MilindDixitStudio" target="_blank" rel="noreferrer">YouTube</a>
     </div>
   </nav>
 
-  <main class="site-shell single-page-shell">
-    <section id="home" class="hero scroll-section scroll-target">
-      <div class="hero-grid">
+  <main class="site-shell">
+    <section id="home" class="hero scroll-target">
+      <div class="hero-topline reveal">
+        <span class="eyebrow">Advanced Music Portfolio</span>
+        <span class="hero-status">System Online</span>
+      </div>
+
+      <div class="hero-layout">
         <div class="hero-copy reveal">
-          <span class="eyebrow">Portfolio</span>
-          <h1><span class="gradient-text">Milind Dixit</span></h1>
+          <p class="hero-code">Audio architecture / visual atmosphere / artist identity</p>
+          <h1>Milind Dixit</h1>
           <p class="subtitle">
             Music producer, lyricist, and student shaping immersive sonic worlds with cinematic emotion, textured atmosphere, and a distinctive independent studio voice.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary magnetic-button" href="#music" data-section-link>Explore Music Lab</a>
-            <a class="btn btn-secondary magnetic-button" href="#connect" data-section-link>Start a Conversation</a>
-          </div>
-          <div class="stats-row">
-            <div class="metric reveal delay-1">
-              <strong>Atmospheric</strong>
-              <span>Sound design rooted in mood and emotional depth.</span>
-            </div>
-            <div class="metric reveal delay-2">
-              <strong>Independent</strong>
-              <span>Built with an evolving studio identity and bold authorship.</span>
-            </div>
-            <div class="metric reveal delay-3">
-              <strong>Forward-Looking</strong>
-              <span>New releases, visuals, and experiments continuously in motion.</span>
-            </div>
+            <a class="btn btn-primary magnetic-button" href="#music" data-section-link>Enter Music Lab</a>
+            <a class="btn btn-secondary magnetic-button" href="#connect" data-section-link>Open Contact Channel</a>
           </div>
         </div>
 
         <div class="hero-visual reveal delay-1">
-          <div class="portrait-card">
-            <div class="floating-badge top">
+          <div class="visual-frame">
+            <div class="visual-photo"></div>
+            <div class="visual-radar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="floating-chip chip-top">
               <strong>Hi Visitors</strong>
               <span>Professional life with a adventurous chaos.</span>
             </div>
-            <div class="floating-badge bottom">
+            <div class="floating-chip chip-bottom">
               <strong>Current Focus</strong>
               <span>Production, Calisthenics and Trading.</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="scroll-cue reveal delay-2">
-        <span>Scroll to explore the studio world</span>
+
+      <div class="hero-dashboard reveal delay-2">
+        <article class="dash-card">
+          <span class="card-tag">Atmospheric</span>
+          <strong>Emotion-led sound design</strong>
+          <p>Sound worlds shaped around tension, space, mood, and cinematic drift.</p>
+        </article>
+        <article class="dash-card">
+          <span class="card-tag">Independent</span>
+          <strong>Author-first creative identity</strong>
+          <p>A studio aesthetic built to feel personal, elevated, and unmistakably original.</p>
+        </article>
+        <article class="dash-card">
+          <span class="card-tag">Forward-Looking</span>
+          <strong>Always in motion</strong>
+          <p>New visuals, releases, and experiments continuously extending the portfolio universe.</p>
+        </article>
+      </div>
+
+      <div class="signal-strip reveal delay-3" aria-hidden="true">
+        <div class="signal-track">
+          <span>Sound Design</span>
+          <span>Cinematic Mood</span>
+          <span>Independent Studio</span>
+          <span>High-Fidelity Identity</span>
+          <span>Immersive Releases</span>
+          <span>Sound Design</span>
+          <span>Cinematic Mood</span>
+          <span>Independent Studio</span>
+          <span>High-Fidelity Identity</span>
+          <span>Immersive Releases</span>
+        </div>
       </div>
     </section>
 
-    <section class="section scroll-section">
-      <div class="section-heading reveal">
+    <section class="overview-panel reveal">
+      <div class="overview-heading">
         <span class="eyebrow">Studio Direction</span>
-        <h2>Built to feel rich, immersive, and intentionally crafted.</h2>
+        <h2>Built like an audio interface, paced like a story world.</h2>
         <p>
-          This studio space is designed around mood, clarity, and depth, bringing music, visuals, and storytelling together in a polished scrolling experience.
+          The site is structured as a full scrolling portfolio system where every section feels like part of a connected music machine instead of separate pages.
         </p>
       </div>
-      <div class="feature-grid">
-        <article class="mini-card reveal delay-1">
-          <span class="card-tag">Sound</span>
-          <h3>Atmospheric Production</h3>
-          <p>Cinematic layers, tonal space, and emotional motion define the sound palette.</p>
+      <div class="overview-grid">
+        <article class="overview-card">
+          <small>01</small>
+          <h3>Motion-rich storytelling</h3>
+          <p>Animated surfaces, scanning layers, and richer visual depth turn the page into an experience.</p>
         </article>
-        <article class="mini-card reveal delay-2">
-          <span class="card-tag">Identity</span>
-          <h3>Distinct Personal Brand</h3>
-          <p>A studio look that feels modern, elevated, and aligned with artistic ambition.</p>
+        <article class="overview-card">
+          <small>02</small>
+          <h3>Premium layout language</h3>
+          <p>A stronger asymmetrical composition gives the portfolio a more advanced and professional feel.</p>
         </article>
-        <article class="mini-card reveal delay-3">
-          <span class="card-tag">Growth</span>
-          <h3>Release Momentum</h3>
-          <p>A flexible foundation for upcoming tracks, collaborations, and expanding reach.</p>
+        <article class="overview-card">
+          <small>03</small>
+          <h3>Music-tech identity</h3>
+          <p>The visual direction leans toward futuristic audio systems rather than standard portfolio glassmorphism.</p>
         </article>
       </div>
     </section>
 
-    <section id="music" class="section scroll-section scroll-target">
-      <div class="page-intro reveal">
-        <span class="eyebrow">Discography Showcase</span>
-        <h1>Music Lab</h1>
-        <p>
-          A curated collection of cinematic and atmospheric pieces, each built around tone, texture, and emotional space.
-        </p>
-      </div>
-
-      <section class="music-grid">
-        <article class="track reveal" data-track="t1">
-          <div class="track-cover">
-            <img src="track1.jpg" alt="Lost Within cover art">
-            <div class="track-overlay"></div>
-          </div>
-          <div class="track-body">
-            <span class="track-tag">Released</span>
-            <h3>Lost Within</h3>
-            <p>Cinematic ambient storytelling through solitude and layered emotion.</p>
-          </div>
-        </article>
-
-        <article class="track reveal delay-1" data-track="t2">
-          <div class="track-cover">
-            <img src="track2.jpg" alt="Frosted Silence cover art">
-            <div class="track-overlay"></div>
-          </div>
-          <div class="track-body">
-            <span class="track-tag">Released</span>
-            <h3>Frosted Silence</h3>
-            <p>A restrained winter soundscape with calm movement and distant resonance.</p>
-          </div>
-        </article>
-
-        <article class="track reveal delay-2" data-track="t3">
-          <div class="track-cover">
-            <img src="track3.jpg" alt="Spread Out cover art">
-            <div class="track-overlay"></div>
-          </div>
-          <div class="track-body">
-            <span class="track-tag">Released</span>
-            <h3>Spread Out</h3>
-            <p>Expansive textures and drifting tonal motion built for spacious listening.</p>
-          </div>
-        </article>
-
-        <article class="track reveal delay-3" data-track="t4">
-          <div class="track-cover">
-            <img src="track4.jpg" alt="Trilochana cover art">
-            <div class="track-overlay"></div>
-          </div>
-          <div class="track-body">
-            <span class="track-tag">Upcoming</span>
-            <h3>Trilochana</h3>
-            <p>A deeper cinematic work now in development with release details to come.</p>
-          </div>
-        </article>
-
-        <article class="track reveal" data-track="t5">
-          <div class="track-cover">
-            <img src="track5.jpg" alt="Soft Void cover art">
-            <div class="track-overlay"></div>
-          </div>
-          <div class="track-body">
-            <span class="track-tag">Released</span>
-            <h3>Soft Void</h3>
-            <p>A newly released atmospheric piece built around softness, space, and emotional drift.</p>
-          </div>
-        </article>
-      </section>
-    </section>
-
-    <section id="socials" class="section scroll-section scroll-target">
-      <div class="page-intro reveal">
-        <span class="eyebrow">Official Platforms</span>
-        <h1>Social &amp; Streaming Links</h1>
-        <p>
-          Follow the studio across video, streaming, and community channels with a cleaner, more polished launch point for every platform.
-        </p>
-      </div>
-
-      <section class="social-grid">
-        <a class="social-card youtube reveal" href="https://youtube.com/@milinddixitstudio" target="_blank" rel="noreferrer">
-          <span class="card-tag">Video</span>
-          <div class="social-meta">
-            <div>
-              <h3>YouTube</h3>
-              <p>Music videos, visual releases, and studio growth in motion.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-
-        <a class="social-card ytmusic reveal delay-1" href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank" rel="noreferrer">
-          <span class="card-tag">Streaming</span>
-          <div class="social-meta">
-            <div>
-              <h3>YouTube Music</h3>
-              <p>Direct access to releases inside the YouTube Music ecosystem.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-
-        <a class="social-card spotify reveal delay-2" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank" rel="noreferrer">
-          <span class="card-tag">Streaming</span>
-          <div class="social-meta">
-            <div>
-              <h3>Spotify</h3>
-              <p>Listen to atmospheric and cinematic work on a leading platform.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-
-        <a class="social-card amazon reveal delay-3" href="https://music.amazon.in/artists/B0GPH5V9SY/milind-dixit" target="_blank" rel="noreferrer">
-          <span class="card-tag">Streaming</span>
-          <div class="social-meta">
-            <div>
-              <h3>Amazon Music</h3>
-              <p>Discover the catalog across Amazon's music network.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-
-        <a class="social-card instagram reveal" href="https://www.instagram.com/milinddixitstudio/" target="_blank" rel="noreferrer">
-          <span class="card-tag">Social</span>
-          <div class="social-meta">
-            <div>
-              <h3>Instagram</h3>
-              <p>Short-form visuals, updates, and the evolving studio aesthetic.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-
-        <a class="social-card xplatform reveal delay-1" href="https://x.com/MilindDStudio" target="_blank" rel="noreferrer">
-          <span class="card-tag">Social</span>
-          <div class="social-meta">
-            <div>
-              <h3>X</h3>
-              <p>Latest updates, announcements, and studio presence on your new account.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-
-        <a class="social-card discord reveal delay-2" href="https://discord.com/invite/zsJuGUmskE" target="_blank" rel="noreferrer">
-          <span class="card-tag">Community</span>
-          <div class="social-meta">
-            <div>
-              <h3>Discord</h3>
-              <p>Join the community space for updates, conversation, and future drops.</p>
-            </div>
-            <span class="social-arrow">&rarr;</span>
-          </div>
-        </a>
-      </section>
-    </section>
-
-    <section id="about" class="section scroll-section scroll-target">
-      <div class="page-intro reveal">
-        <span class="eyebrow">Artist Profile</span>
-        <h1>About Milind Dixit</h1>
-        <p>
-          An independent music producer building atmospheric, cinematic, and emotionally driven compositions while shaping a long-term creative studio identity.
-        </p>
-      </div>
-
-      <section class="about-grid">
-        <article class="about-card reveal">
-          <span class="card-tag">Studio Story</span>
-          <h3>Sound as atmosphere, memory, and movement.</h3>
+    <section id="music" class="scene scene-music scroll-target">
+      <div class="scene-rail">
+        <div class="scene-intro reveal">
+          <span class="eyebrow">Discography Showcase</span>
+          <h2>Music Lab</h2>
           <p>
-            Milind Dixit creates music that leans into texture, space, and visual imagination. Each composition is approached as a world of its own, blending cinematic tone with an intimate emotional core.
+            A curated collection of cinematic and atmospheric pieces, each built around tone, texture, and emotional space.
           </p>
-          <div class="bullet-list">
-            <div class="bullet-item">Independent production with a strong cinematic sensibility.</div>
-            <div class="bullet-item">Focus on immersive soundscapes and minimal but expressive storytelling.</div>
-            <div class="bullet-item">A growing identity shaped alongside study, experimentation, and future releases.</div>
+          <div class="scene-pills">
+            <span>Gallery mode</span>
+            <span>Detail panel</span>
+            <span>Immersive covers</span>
           </div>
-        </article>
+        </div>
 
-        <article class="about-card reveal delay-1">
-          <span class="card-tag">Creative Focus</span>
-          <h3>Building a professional body of work with depth and intent.</h3>
-          <p>
-            The direction of Milind Dixit Studio is centered on consistency, evolution, and a polished presentation that supports both music releases and a broader creative presence.
-          </p>
-          <div class="bullet-list">
-            <div class="bullet-item">Expanding into richer visuals, stronger branding, and release-ready presentation.</div>
-            <div class="bullet-item">Exploring atmospheric production as both an artistic and signature identity.</div>
-            <div class="bullet-item">Creating a foundation for collaborations, audience growth, and upcoming projects.</div>
-          </div>
-        </article>
-      </section>
+        <div class="scene-content">
+          <article class="scene-banner reveal">
+            <span class="card-tag">Release Matrix</span>
+            <h3>Every track is framed like a high-end project card inside a music interface.</h3>
+            <p>
+              The section keeps your track data but presents it as a premium collection with stronger hierarchy, depth, and hover motion.
+            </p>
+          </article>
+
+          <section class="music-grid">
+            <article class="track track-large reveal" data-track="t1">
+              <div class="track-cover">
+                <img src="track1.jpg" alt="Lost Within cover art">
+                <div class="track-overlay"></div>
+              </div>
+              <div class="track-body">
+                <span class="track-tag">Released</span>
+                <h3>Lost Within</h3>
+                <p>Cinematic ambient storytelling through solitude and layered emotion.</p>
+              </div>
+            </article>
+
+            <article class="track reveal delay-1" data-track="t2">
+              <div class="track-cover">
+                <img src="track2.jpg" alt="Frosted Silence cover art">
+                <div class="track-overlay"></div>
+              </div>
+              <div class="track-body">
+                <span class="track-tag">Released</span>
+                <h3>Frosted Silence</h3>
+                <p>A restrained winter soundscape with calm movement and distant resonance.</p>
+              </div>
+            </article>
+
+            <article class="track reveal delay-2" data-track="t3">
+              <div class="track-cover">
+                <img src="track3.jpg" alt="Spread Out cover art">
+                <div class="track-overlay"></div>
+              </div>
+              <div class="track-body">
+                <span class="track-tag">Released</span>
+                <h3>Spread Out</h3>
+                <p>Expansive textures and drifting tonal motion built for spacious listening.</p>
+              </div>
+            </article>
+
+            <article class="track reveal" data-track="t4">
+              <div class="track-cover">
+                <img src="track4.jpg" alt="Trilochana cover art">
+                <div class="track-overlay"></div>
+              </div>
+              <div class="track-body">
+                <span class="track-tag">Upcoming</span>
+                <h3>Trilochana</h3>
+                <p>A deeper cinematic work now in development with release details to come.</p>
+              </div>
+            </article>
+
+            <article class="track track-wide reveal delay-1" data-track="t5">
+              <div class="track-cover">
+                <img src="track5.jpg" alt="Soft Void cover art">
+                <div class="track-overlay"></div>
+              </div>
+              <div class="track-body">
+                <span class="track-tag">Released</span>
+                <h3>Soft Void</h3>
+                <p>A newly released atmospheric piece built around softness, space, and emotional drift.</p>
+              </div>
+            </article>
+          </section>
+        </div>
+      </div>
     </section>
 
-    <section id="connect" class="section scroll-section scroll-target">
-      <div class="page-intro reveal">
-        <span class="eyebrow">Direct Contact</span>
-        <h1>Connect With Me</h1>
-        <p>
-          For collaborations, feedback, and serious creative conversations, this section keeps the contact experience premium, direct, and fully integrated into the scrolling journey.
-        </p>
-      </div>
-
-      <section class="contact-grid">
-        <article class="contact-card reveal">
-          <span class="card-tag">Why Reach Out</span>
-          <h3>Open to thoughtful creative conversations.</h3>
+    <section id="socials" class="scene scene-socials scroll-target">
+      <div class="scene-rail">
+        <div class="scene-intro reveal">
+          <span class="eyebrow">Official Platforms</span>
+          <h2>Streaming + Social Grid</h2>
           <p>
-            Whether you want to discuss music, ask about releases, or explore future work, this space is designed to make the first interaction feel polished and welcoming.
+            Follow the studio across video, streaming, and community channels with a launch hub designed like an interactive platform board.
           </p>
-          <div class="bullet-list">
-            <div class="bullet-item">Collaboration ideas and artistic discussions.</div>
-            <div class="bullet-item">Questions about current or upcoming music.</div>
-            <div class="bullet-item">Professional messages with a direct response path.</div>
+          <div class="scene-pills">
+            <span>Streaming</span>
+            <span>Video</span>
+            <span>Community</span>
           </div>
-        </article>
+        </div>
 
-        <article class="contact-card reveal delay-1">
-          <span class="card-tag">Message Form</span>
-          <h3>Send a message</h3>
-          <form id="contact-form">
-            <label>
-              Your Name
-              <input type="text" name="name" placeholder="Enter your name" required>
-            </label>
+        <div class="scene-content">
+          <section class="social-grid">
+            <a class="social-card youtube reveal" href="https://youtube.com/@milinddixitstudio" target="_blank" rel="noreferrer">
+              <span class="card-tag">Video</span>
+              <div class="social-meta">
+                <div>
+                  <h3>YouTube</h3>
+                  <p>Music videos, visual releases, and studio growth in motion.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
 
-            <label>
-              Your Email
-              <input type="email" name="email" placeholder="Enter your email" required>
-            </label>
+            <a class="social-card ytmusic reveal delay-1" href="https://music.youtube.com/channel/UCIaaLIW9MKjHjo6iWLQqrjQ" target="_blank" rel="noreferrer">
+              <span class="card-tag">Streaming</span>
+              <div class="social-meta">
+                <div>
+                  <h3>YouTube Music</h3>
+                  <p>Direct access to releases inside the YouTube Music ecosystem.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
 
-            <label>
-              Your Message
-              <textarea name="message" placeholder="Write your message here" required></textarea>
-            </label>
+            <a class="social-card spotify reveal delay-2" href="https://open.spotify.com/artist/2E8rJvn9xI8R22q71LYTa4" target="_blank" rel="noreferrer">
+              <span class="card-tag">Streaming</span>
+              <div class="social-meta">
+                <div>
+                  <h3>Spotify</h3>
+                  <p>Listen to atmospheric and cinematic work on a leading platform.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
 
-            <button class="btn btn-primary magnetic-button" type="submit">Send Message</button>
-            <div id="form-status" class="status-message" aria-live="polite"></div>
-          </form>
-        </article>
-      </section>
+            <a class="social-card amazon reveal delay-3" href="https://music.amazon.in/artists/B0GPH5V9SY/milind-dixit" target="_blank" rel="noreferrer">
+              <span class="card-tag">Streaming</span>
+              <div class="social-meta">
+                <div>
+                  <h3>Amazon Music</h3>
+                  <p>Discover the catalog across Amazon's music network.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
+
+            <a class="social-card instagram reveal" href="https://www.instagram.com/milinddixitstudio/" target="_blank" rel="noreferrer">
+              <span class="card-tag">Social</span>
+              <div class="social-meta">
+                <div>
+                  <h3>Instagram</h3>
+                  <p>Short-form visuals, updates, and the evolving studio aesthetic.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
+
+            <a class="social-card xplatform reveal delay-1" href="https://x.com/MilindDStudio" target="_blank" rel="noreferrer">
+              <span class="card-tag">Social</span>
+              <div class="social-meta">
+                <div>
+                  <h3>X</h3>
+                  <p>Latest updates, announcements, and studio presence on your new account.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
+
+            <a class="social-card discord reveal delay-2" href="https://discord.com/invite/zsJuGUmskE" target="_blank" rel="noreferrer">
+              <span class="card-tag">Community</span>
+              <div class="social-meta">
+                <div>
+                  <h3>Discord</h3>
+                  <p>Join the community space for updates, conversation, and future drops.</p>
+                </div>
+                <span class="social-arrow">&rarr;</span>
+              </div>
+            </a>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="scene scene-about scroll-target">
+      <div class="scene-rail">
+        <div class="scene-intro reveal">
+          <span class="eyebrow">Artist Profile</span>
+          <h2>About Milind Dixit</h2>
+          <p>
+            An independent music producer building atmospheric, cinematic, and emotionally driven compositions while shaping a long-term creative studio identity.
+          </p>
+        </div>
+
+        <div class="scene-content">
+          <div class="about-grid">
+            <article class="about-card reveal">
+              <span class="card-tag">Studio Story</span>
+              <h3>Sound as atmosphere, memory, and movement.</h3>
+              <p>
+                Milind Dixit creates music that leans into texture, space, and visual imagination. Each composition is approached as a world of its own, blending cinematic tone with an intimate emotional core.
+              </p>
+              <div class="bullet-list">
+                <div class="bullet-item">Independent production with a strong cinematic sensibility.</div>
+                <div class="bullet-item">Focus on immersive soundscapes and minimal but expressive storytelling.</div>
+                <div class="bullet-item">A growing identity shaped alongside study, experimentation, and future releases.</div>
+              </div>
+            </article>
+
+            <article class="about-card reveal delay-1">
+              <span class="card-tag">Creative Focus</span>
+              <h3>Building a professional body of work with depth and intent.</h3>
+              <p>
+                The direction of Milind Dixit Studio is centered on consistency, evolution, and a polished presentation that supports both music releases and a broader creative presence.
+              </p>
+              <div class="bullet-list">
+                <div class="bullet-item">Expanding into richer visuals, stronger branding, and release-ready presentation.</div>
+                <div class="bullet-item">Exploring atmospheric production as both an artistic and signature identity.</div>
+                <div class="bullet-item">Creating a foundation for collaborations, audience growth, and upcoming projects.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect" class="scene scene-connect scroll-target">
+      <div class="scene-rail">
+        <div class="scene-intro reveal">
+          <span class="eyebrow">Direct Contact</span>
+          <h2>Connect With Me</h2>
+          <p>
+            For collaborations, feedback, and serious creative conversations, this section keeps the contact experience premium, direct, and fully integrated into the scrolling journey.
+          </p>
+          <div class="scene-pills">
+            <span>Collaborations</span>
+            <span>Feedback</span>
+            <span>Professional outreach</span>
+          </div>
+        </div>
+
+        <div class="scene-content">
+          <section class="contact-grid">
+            <article class="contact-card reveal">
+              <span class="card-tag">Why Reach Out</span>
+              <h3>Open to thoughtful creative conversations.</h3>
+              <p>
+                Whether you want to discuss music, ask about releases, or explore future work, this space is designed to make the first interaction feel polished and welcoming.
+              </p>
+              <div class="bullet-list">
+                <div class="bullet-item">Collaboration ideas and artistic discussions.</div>
+                <div class="bullet-item">Questions about current or upcoming music.</div>
+                <div class="bullet-item">Professional messages with a direct response path.</div>
+              </div>
+            </article>
+
+            <article class="contact-card form-card reveal delay-1">
+              <span class="card-tag">Message Form</span>
+              <h3>Send a message</h3>
+              <form id="contact-form">
+                <label>
+                  Your Name
+                  <input type="text" name="name" placeholder="Enter your name" required>
+                </label>
+
+                <label>
+                  Your Email
+                  <input type="email" name="email" placeholder="Enter your email" required>
+                </label>
+
+                <label>
+                  Your Message
+                  <textarea name="message" placeholder="Write your message here" required></textarea>
+                </label>
+
+                <button class="btn btn-primary magnetic-button" type="submit">Send Message</button>
+                <div id="form-status" class="status-message" aria-live="polite"></div>
+              </form>
+            </article>
+          </section>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -374,7 +452,8 @@
   </div>
 
   <footer class="footer">
-    &copy; Milind Dixit Studio. All sound rights reserved.
+    <span>&copy; Milind Dixit Studio. All sound rights reserved.</span>
+    <span>Futuristic music portfolio interface.</span>
   </footer>
 
   <script src="script.js"></script>
